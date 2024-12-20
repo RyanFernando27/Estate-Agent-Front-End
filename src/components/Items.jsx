@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card.jsx";
+import Cards from "./Cards.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Items() {
@@ -9,7 +9,7 @@ function Items() {
         <div class="">
           <div class="border p-4">
             <h1>Items</h1>
-            <Card />
+            <Cards />
           </div>
         </div>
       </div>
