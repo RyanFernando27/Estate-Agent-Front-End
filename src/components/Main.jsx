@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col";
 function Main() {
   return (
     <>
-      <div class="container">
+      <div className="container">
         <NavBar />
         <Row>
           <Col sm={8}>

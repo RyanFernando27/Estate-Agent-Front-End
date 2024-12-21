@@ -22,8 +22,8 @@ function NavBar() {
         <div className="mt-3">
           <input type="text" placeholder="London"></input>
           <div className="d-flex justify-content-center align-items-center mt-1 gap-2">
-            <Button variant="outline-success">For Sale</Button>
-            <Button variant="outline-success">For Rent</Button>
+            <Button variant="outline-success">House</Button>
+            <Button variant="outline-success">Flat</Button>
           </div>
         </div>
       </Container>

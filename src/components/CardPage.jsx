@@ -12,11 +12,7 @@ function CardPage({ properties }) {
         {Records.properties.map((eachCard) => (
           <Col md={4} key={eachCard.id} className="mb-4">
             <Card>
-              <Card.Img
-                variant="top"
-                src={eachCard.picture}
-                alt={eachCard.type}
-              />
+              <Card.Img variant="top" src={pic1} alt={eachCard.type} />
               <Card.Body>
                 <Card.Title>{eachCard.type}</Card.Title>
                 <Card.Text>
