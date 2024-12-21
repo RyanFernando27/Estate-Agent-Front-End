@@ -1,8 +1,8 @@
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import logo from "../assests/logo.jpg";
 
+import logo from "../assests/logo.jpg";
 import React from "react";
 
 function NavBar() {

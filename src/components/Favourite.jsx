@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Favourite() {
   return (
-    <div class="container-fluid bg-dark col-md-6 ">
+    <div class="container ">
       <div class="row justify-content-center">
         <div class=" ">
           <div class="border p-4 ">
