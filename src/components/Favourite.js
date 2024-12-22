@@ -2,7 +2,6 @@ import React from "react";
 import "../index.css";
 
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import pic1 from "../assests/properties/prop1/prop1-1.jpg";
 
 function Favourite({ favourites, removeFromFavourite }) {
   return (
@@ -20,7 +19,7 @@ function Favourite({ favourites, removeFromFavourite }) {
                     <Col sm={4}>
                       <Card.Img
                         variant="top"
-                        src={pic1 || "placeholder-image-url.jpg"}
+                        src={fav.picture || "placeholder-image-url.jpg"}
                         alt={fav.type}
                       />
                     </Col>

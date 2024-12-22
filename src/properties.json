@@ -8,7 +8,7 @@
             "tenure": "Freehold",
             "description": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior...",
             "location": "Petts Wood Road, Petts Wood, Orpington BR5",
-            "picture": "assets/properties/prop1/prop1-1.jpg",
+            "picture": "images/prop1.jpg",
             "url": "assets/properties/prop1.html",
             "added": {
                 "month": "October",
@@ -24,7 +24,7 @@
             "tenure": "Freehold",
             "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
             "location": "Crofton Road Orpington BR6",
-            "picture": "assets/properties/prop2/prop2-1.jpg",
+            "picture": "images/prop2.jpg",
             "url": "properties/prop2.html",
             "added": {
                 "month": "September",
@@ -40,7 +40,7 @@
             "tenure": "Leasehold",
             "description": "One bedroom top floor apartment with stunning views over the city. Ideal for first-time buyers or investors, this property features a modern open-plan kitchen and living area, spacious bedroom with built-in wardrobes, and a luxurious bathroom. The property is located close to transport links and local amenities.",
             "location": "High Street, Bromley BR1",
-            "picture": "assets/properties/prop3/prop3-1.jpg",
+            "picture": "images/prop3.jpg",
             "url": "properties/prop3.html",
             "added": {
                 "month": "August",
@@ -56,7 +56,7 @@
             "tenure": "Freehold",
             "description": "Luxurious five-bedroom detached house situated in a quiet cul-de-sac. Featuring a spacious lounge, a modern kitchen with an island, a dining area, five double bedrooms (two with en-suites), a family bathroom, and a landscaped garden with a patio area. Double garage and ample driveway parking.",
             "location": "Oak Avenue, Chislehurst BR7",
-            "picture": "assets/properties/prop4/prop4-1.jpg",
+            "picture": "images/prop4.jpeg",
             "url": "properties/prop4.html",
             "added": {
                 "month": "July",
@@ -72,7 +72,7 @@
             "tenure": "Freehold",
             "description": "Charming two-bedroom period cottage with original features including exposed beams and a fireplace. The property offers a cozy living room, a country-style kitchen, two bedrooms, a modern bathroom, and a private garden. Located in a picturesque village with local shops and pubs.",
             "location": "Village Lane, Farnborough BR6",
-            "picture": "assets/properties/prop5/prop5-1.jpg",
+            "picture": "images/prop5.jpg",
             "url": "properties/prop5.html",
             "added": {
                 "month": "June",
@@ -88,7 +88,7 @@
             "tenure": "Freehold",
             "description": "Spacious three-bedroom bungalow in a sought-after area. Features include a large living room, a fully fitted kitchen, three generous bedrooms, a family bathroom, and a conservatory. The property is surrounded by a well-maintained garden and offers a garage with additional parking space.",
             "location": "Park Road, Sidcup DA14",
-            "picture": "assets/properties/prop6/prop6-1.jpg",
+            "picture": "images/prop6.jpg",
             "url": "properties/prop6.html",
             "added": {
                 "month": "May",
@@ -104,7 +104,7 @@
             "tenure": "Leasehold",
             "description": "Modern studio apartment perfect for singles or investors. Located in a vibrant urban area, the property features a well-equipped kitchenette, a stylish bathroom, and a cleverly designed living/sleeping area. Secure entry and excellent transport links.",
             "location": "Station Road, Beckenham BR3",
-            "picture": "assets/properties/prop7/prop7-1.jpg",
+            "picture": "images/prop7.jpg",
             "url": "properties/prop7.html",
             "added": {
                 "month": "April",
@@ -120,7 +120,7 @@
             "tenure": "Leasehold",
             "description": "Spacious two-bedroom maisonette with its own private entrance. This property features a bright living room, a modern kitchen, two double bedrooms, and a contemporary bathroom. Located close to schools and parks, it includes allocated parking and communal gardens.",
             "location": "Elm Grove, Orpington BR6",
-            "picture": "assets/properties/prop8/prop8-1.jpg",
+            "picture": "images/prop8.jpg",
             "url": "properties/prop8.html",
             "added": {
                 "month": "March",
@@ -136,7 +136,7 @@
             "tenure": "Freehold",
             "description": "Well-maintained three-bedroom terraced house featuring a spacious lounge, a dining area, a fully equipped kitchen, and a family bathroom. The property also offers a private rear garden and on-street parking. Close to local amenities and transport links.",
             "location": "Main Road, Swanley BR8",
-            "picture": "assests/properties/prop9/prop9-1.jpg",
+            "picture": "images/prop9.jpeg",
             "url": "properties/prop9.html",
             "added": {
                 "month": "February",
@@ -152,7 +152,7 @@
             "tenure": "Leasehold",
             "description": "Stunning four-bedroom penthouse apartment with panoramic city views. This property boasts a large open-plan living area, a high-spec kitchen, four luxurious bedrooms, three bathrooms, and a private rooftop terrace. Secure underground parking included.",
             "location": "City Center, London EC1",
-            "picture": "assets/properties/prop10/prop10-1.jpg",
+            "picture": "images/prop10.jpeg",
             "url": "properties/prop10.html",
             "added": {
                 "month": "January",
