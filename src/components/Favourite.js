@@ -5,8 +5,8 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 function Favourite({ favourites, removeFromFavourite }) {
   return (
-    <Container className="container-style">
-      <h1>Favourite</h1>
+    <Container className="container-style p-4">
+      <h2 className="mb-4 mt-4">Favourite</h2>
       {/* Checking array has any items */}
       {favourites.length > 0 ? (
         // If favourites is not empty, it maps over the array and renders each favourite property inside a Row and Col layout.
