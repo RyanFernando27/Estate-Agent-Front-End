@@ -8,10 +8,10 @@ import Col from "react-bootstrap/Col";
 
 function Main() {
   const [favourites, setFavourites] = useState([]);
+  const [filterType, setFilterType] = useState("");
 
   const addToFavourite = (item) => {
     if (favourites.some((fav) => fav.id === item.id)) {
-      // Show alert if the item is already in the favourites list
       alert("Item is already added");
     } else {
       setFavourites([...favourites, item]);
@@ -22,13 +22,21 @@ function Main() {
     setFavourites(favourites.filter((fav) => fav.id !== id));
   };
 
+  const filterByType = (type) => {
+    setFilterType(type);
+  };
+
+  const resetFilter = () => {
+    setFilterType("");
+  };
+
   return (
     <>
       <div className="container">
-        <NavBar />
+        <NavBar filterByType={filterByType} resetFilter={resetFilter} />
         <Row>
           <Col sm={8}>
-            <Items addToFavourite={addToFavourite} />
+            <Items addToFavourite={addToFavourite} filterType={filterType} />
           </Col>
           <Col sm={4}>
             <Favourite
@@ -41,4 +49,5 @@ function Main() {
     </>
   );
 }
+
 export default Main;

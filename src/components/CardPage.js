@@ -5,11 +5,15 @@ import Button from "react-bootstrap/Button";
 import Records from "../properties.json";
 import pic1 from "../assests/properties/prop1/prop1-1.jpg";
 
-function CardPage({ addToFavourite }) {
+function CardPage({ addToFavourite, filterType }) {
+  const filteredProperties = filterType
+    ? Records.properties.filter((property) => property.type === filterType)
+    : Records.properties;
+
   return (
-    <Container className="my-4 ">
+    <Container className="my-4">
       <Row>
-        {Records.properties.map((eachCard) => (
+        {filteredProperties.map((eachCard) => (
           <Col md={4} key={eachCard.id} className="mb-4">
             <Card className="item-card">
               <Card.Img variant="top" src={pic1} alt={eachCard.type} />
