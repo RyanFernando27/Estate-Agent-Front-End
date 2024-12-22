@@ -1,11 +1,16 @@
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-
+import React, { useState } from "react";
 import logo from "../assests/logo.jpg";
-import React from "react";
 
-function NavBar({ filterByType, resetFilter }) {
+function NavBar({ filterProperties, resetFilter }) {
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleSearch = (type) => {
+    filterProperties(type, searchInput);
+  };
+
   return (
     <Navbar className="bg-body-tertiary bg-red mb-5">
       <Container>
@@ -20,17 +25,22 @@ function NavBar({ filterByType, resetFilter }) {
           Real State
         </Navbar.Brand>
         <div className="mt-3">
-          <input type="text" placeholder="London"></input>
+          <input
+            type="text"
+            placeholder="Search by location or tenure"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
           <div className="d-flex justify-content-center align-items-center mt-1 gap-2">
             <Button
               variant="outline-success"
-              onClick={() => filterByType("House")}
+              onClick={() => handleSearch("House")}
             >
               House
             </Button>
             <Button
               variant="outline-success"
-              onClick={() => filterByType("Flat")}
+              onClick={() => handleSearch("Flat")}
             >
               Flat
             </Button>

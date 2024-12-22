@@ -5,10 +5,13 @@ import Row from "react-bootstrap/Row";
 import NavBar from "./Navbar";
 import Favourite from "./Favourite";
 import Col from "react-bootstrap/Col";
+import Records from "../properties.json";
 
 function Main() {
   const [favourites, setFavourites] = useState([]);
-  const [filterType, setFilterType] = useState("");
+  const [filteredProperties, setFilteredProperties] = useState(
+    Records.properties
+  );
 
   const addToFavourite = (item) => {
     if (favourites.some((fav) => fav.id === item.id)) {
@@ -22,21 +25,31 @@ function Main() {
     setFavourites(favourites.filter((fav) => fav.id !== id));
   };
 
-  const filterByType = (type) => {
-    setFilterType(type);
+  const filterProperties = (type, searchInput) => {
+    const searchQuery = searchInput.toLowerCase();
+    const filtered = Records.properties.filter(
+      (property) =>
+        property.type === type &&
+        (property.location.toLowerCase().includes(searchQuery) ||
+          property.tenure.toLowerCase().includes(searchQuery))
+    );
+    setFilteredProperties(filtered);
   };
 
   const resetFilter = () => {
-    setFilterType("");
+    setFilteredProperties(Records.properties);
   };
 
   return (
     <>
       <div className="container">
-        <NavBar filterByType={filterByType} resetFilter={resetFilter} />
+        <NavBar filterProperties={filterProperties} resetFilter={resetFilter} />
         <Row>
           <Col sm={8}>
-            <Items addToFavourite={addToFavourite} filterType={filterType} />
+            <Items
+              addToFavourite={addToFavourite}
+              properties={filteredProperties}
+            />
           </Col>
           <Col sm={4}>
             <Favourite

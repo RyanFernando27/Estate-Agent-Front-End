@@ -1,13 +1,13 @@
 import React from "react";
 import CardPage from "./CardPage";
 
-function Items({ addToFavourite, filterType }) {
+function Items({ addToFavourite, properties }) {
   return (
     <div className="container container-style">
       <div className="row justify-content-center">
         <div className="border p-4 row">
-          <h1>{filterType ? `${filterType}s` : "Items"}</h1>
-          <CardPage addToFavourite={addToFavourite} filterType={filterType} />
+          <h1>Items</h1>
+          <CardPage addToFavourite={addToFavourite} properties={properties} />
         </div>
       </div>
     </div>
