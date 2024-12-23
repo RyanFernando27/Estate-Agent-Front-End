@@ -26,6 +26,7 @@ function NavBar({ filterProperties, resetFilter }) {
         </Navbar.Brand>
         <div className="mt-3">
           <input
+            className="searchbar"
             type="text"
             placeholder="Search by location or tenure"
             value={searchInput}

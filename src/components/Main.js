@@ -25,6 +25,11 @@ function Main() {
     setFavourites(favourites.filter((fav) => fav.id !== id));
   };
 
+  // Function to clear all favourites
+  const clearFavourites = () => {
+    setFavourites([]);
+  };
+
   const filterProperties = (type, searchInput) => {
     const searchQuery = searchInput.toLowerCase();
     const filtered = Records.properties.filter(
@@ -55,6 +60,7 @@ function Main() {
             <Favourite
               favourites={favourites}
               removeFromFavourite={removeFromFavourite}
+              clearFavourites={clearFavourites}
             />
           </Col>
         </Row>
