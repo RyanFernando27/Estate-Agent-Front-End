@@ -3,18 +3,23 @@ import { Container, Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-function CardPage({ addToFavourite, properties }) {
+function CardPage({ addToFavourite, properties, handleCardClick }) {
   return (
     <Container className="my-4">
       <Row>
         {properties.map((eachCard) => (
           <Col md={4} key={eachCard.id} className="mb-4">
             <Card className="item-card">
-              <Card.Img
-                variant="top"
-                src={eachCard.picture}
-                alt={eachCard.type}
-              />
+              <button
+                className="card-pic-btn"
+                onClick={() => handleCardClick(eachCard)}
+              >
+                <Card.Img
+                  variant="top"
+                  src={eachCard.picture}
+                  alt={eachCard.type}
+                />
+              </button>
               <Card.Body>
                 <Card.Title>{eachCard.type}</Card.Title>
                 <Card.Text>
