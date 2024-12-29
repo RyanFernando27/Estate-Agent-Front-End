@@ -41,3 +41,21 @@
   max-width: 640px;
   background-color: white;
 }
+
+/* .pageUp-btn {
+  position: fixed;
+
+  width: 100%;
+  left: 90%;
+  bottom: 10%;
+  height: 20px;
+  font-size: 3rem;
+  z-index: 1;
+  cursor: pointer;
+  color: rgb(32, 79, 234);
+}
+
+Content {
+  overflow: scroll;
+  height: 2500px;
+} */
