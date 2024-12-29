@@ -5,8 +5,8 @@ import Row from "react-bootstrap/Row";
 import NavBar from "./Navbar";
 import Favourite from "./Favourite";
 import Col from "react-bootstrap/Col";
-import PopupWindow from "./PopupWindow.js";
 import Records from "../properties.json";
+import PropertyPage from "./PropertyPage.js";
 
 function Main() {
   const [favourites, setFavourites] = useState([]);
@@ -53,15 +53,11 @@ function Main() {
     setPopupTrigger(true);
   };
 
-  const closePopup = () => {
-    setPopupTrigger(false);
-    setSelectedProperty(null);
-  };
-
   return (
     <>
       <div className="container">
         <NavBar filterProperties={filterProperties} resetFilter={resetFilter} />
+
         <Row>
           <Col sm={8}>
             <Items
@@ -70,11 +66,7 @@ function Main() {
               handleCardClick={handleCardClick}
             />
           </Col>
-          <PopupWindow
-            trigger={popupTrigger}
-            property={selectedProperty}
-            closePopup={closePopup}
-          />
+          <PropertyPage trigger={popupTrigger} property={selectedProperty} />
 
           <Col sm={4}>
             <Favourite
