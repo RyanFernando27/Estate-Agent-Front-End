@@ -1,109 +1,139 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import { createRoot } from "react-dom/client";
+import { GrNext } from "react-icons/gr";
+import { GrLinkPrevious } from "react-icons/gr";
+
+import { GrPrevious } from "react-icons/gr";
 import "react-tabs/style/react-tabs.css";
 
-function PropertyPage({ trigger, property }) {
+const PropertyPage = ({ properties }) => {
+  const { id } = useParams(); // Extract the `id` parameter from the URL
+  const [property, setProperty] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(""); // State to store selected image
+  const thumbnailsRef = React.createRef(); // Reference to thumbnail container
+
   useEffect(() => {
-    if (trigger && property) {
-      const newTab = window.open();
+    // Find the property based on the ID passed in the URL
+    const selectedProperty = properties.find((prop) => prop.id === id);
+    setProperty(selectedProperty);
+    setSelectedImage(selectedProperty?.picture); // Set the first image as the selected image
+  }, [id, properties]);
 
-      if (newTab) {
-        newTab.document.open();
-        newTab.document.write(`
-          <!DOCTYPE html>~
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Property Details</title>
-            <link rel="stylesheet" href="https://unpkg.com/react-tabs/style/react-tabs.css">
-            <style>
-              body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-           
-                background-color: #f8f9fa;
-              }
-              .page-container {
-                
-                margin: auto;
-                background: white;
-                padding: 20px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                border-radius: 8px;
-              }
-              h1 {
-                text-align: center;
-                margin-bottom: 20px;
-              }
-            </style>
-          </head>
-          <body>
-            <div class="page-container">
-              <h1>Property Details</h1>
-              <div id="page-content"></div>
-            </div>
-          </body>
-          </html>
-        `);
-        newTab.document.close();
+  if (!property) {
+    return <div>Loading property details...</div>; // Fallback if property is not found
+  }
 
-        const container = newTab.document.getElementById("page-content");
-        if (container) {
-          const content = (
-            <>
-              <div>
-                <Tabs>
-                  <TabList>
-                    <Tab>Description</Tab>
-                    <Tab>Floor Plan</Tab>
-                    <Tab>Map</Tab>
-                  </TabList>
+  // Format the added date to a string
+  const formattedDate = `${property.added.month} ${property.added.day}, ${property.added.year}`;
 
-                  <TabPanel>
-                    <img src={property.images} alt="proptery one" />
-                    <p>{property.type}</p>
-                  </TabPanel>
-                  <TabPanel>
-                    <p>
-                      <b>Luigi</b> (<i>Japanese: ルイージ Hepburn: Ruīji, </i>)
-                      (<i>English:</i>) is a fictional character featured in
-                      video games and related media released by Nintendo.
-                      Created by prominent game designer Shigeru Miyamoto, Luigi
-                      is portrayed as the slightly younger but taller fraternal
-                      twin brother of Nintendo's mascot Mario, and appears in
-                      many games throughout the Mario franchise, often as a
-                      sidekick to his brother.
-                    </p>
-                  </TabPanel>
-                  <TabPanel>
-                    <p>
-                      <b>Princess Peach</b> (
-                      <i>Japanese: ピーチ姫 Hepburn: Pīchi-hime,</i>) is a
-                      character in Nintendo's Mario franchise. Originally
-                      created by Shigeru Miyamoto, Peach is the princess of the
-                      fictional Mushroom Kingdom, which is constantly under
-                      attack by Bowser. She often plays the damsel in distress
-                      role within the series and is the lead female. She is
-                      often portrayed as Mario's love interest and has appeared
-                      in Super Princess Peach, where she is the main playable
-                      character.
-                    </p>
-                  </TabPanel>
-                </Tabs>
-              </div>
-            </>
-          );
+  // Function to change the selected image
+  const handleThumbnailClick = (image) => {
+    setSelectedImage(image);
+  };
 
-          const root = createRoot(container);
-          root.render(content);
-        }
-      }
+  // Functions to scroll the thumbnails left or right
+  const scrollThumbnails = (direction) => {
+    const container = thumbnailsRef.current;
+    const scrollAmount = 100; // Amount to scroll when an arrow is clicked
+    if (direction === "left") {
+      container.scrollLeft -= scrollAmount;
+    } else {
+      container.scrollLeft += scrollAmount;
     }
-  }, [trigger, property]);
+  };
 
-  return null;
-}
+  return (
+    <Container className="my-4">
+      <Link to="/" className="btn btn-primary mb-4">
+        <GrLinkPrevious />
+      </Link>
+      <Row>
+        <Col md={6}>
+          {/* Display the main image */}
+          <Image src={selectedImage} alt={property.type} fluid />
+          <div className="d-flex justify-content-center mt-3">
+            <Button variant="link" onClick={() => scrollThumbnails("left")}>
+              <GrPrevious />
+            </Button>
+
+            {/* Scrollable Thumbnail images */}
+            <div
+              className="d-flex overflow-auto"
+              style={{ maxWidth: "100%", scrollBehavior: "smooth" }}
+              ref={thumbnailsRef}
+            >
+              {Object.keys(property.images).map((imageKey) => (
+                <Col key={imageKey} md={3} className="mb-3">
+                  <Image
+                    src={property.images[imageKey]}
+                    alt={`Gallery ${imageKey}`}
+                    thumbnail
+                    className="cursor-pointer"
+                    onClick={() =>
+                      handleThumbnailClick(property.images[imageKey])
+                    } // Change main image on click
+                  />
+                </Col>
+              ))}
+            </div>
+
+            <Button variant="link" onClick={() => scrollThumbnails("right")}>
+              <GrNext />
+            </Button>
+          </div>
+        </Col>
+        <Col md={6}>
+          <Tabs>
+            <TabList>
+              <Tab>Description</Tab>
+              <Tab>Floor Plan</Tab>
+              <Tab>Map</Tab>
+            </TabList>
+
+            <TabPanel>
+              <h1>{property.type}</h1>
+              <p>
+                <strong>Location:</strong> {property.location}
+              </p>
+              <p>
+                <strong>Tenure:</strong> {property.tenure}
+              </p>
+              <p>
+                <strong>Bedrooms:</strong> {property.bedrooms}
+              </p>
+              <p>
+                <strong>Price:</strong> ${property.price.toLocaleString()}
+              </p>
+              <p>
+                <strong>Description:</strong> {property.description}
+              </p>
+              <p>
+                <strong>Added on:</strong> {formattedDate}
+              </p>
+            </TabPanel>
+
+            {/* Image Gallery Panel */}
+            <TabPanel>
+              <h2>Image Gallery</h2>
+            </TabPanel>
+            <TabPanel>
+              <iframe
+                src={property.mapSrc}
+                width="600"
+                height="450"
+                style={{ border: "0" }}
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </TabPanel>
+          </Tabs>
+        </Col>
+      </Row>
+    </Container>
+  );
+};
 
 export default PropertyPage;

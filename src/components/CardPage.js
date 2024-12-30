@@ -1,10 +1,11 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { createRoot } from "react-dom/client";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
-function CardPage({ addToFavourite, properties, handleCardClick }) {
+function CardPage({ addToFavourite, properties }) {
   return (
     <>
       <Container className="my-4">
@@ -12,18 +13,14 @@ function CardPage({ addToFavourite, properties, handleCardClick }) {
           {properties.map((eachCard) => (
             <Col md={4} key={eachCard.id} className="mb-4">
               <Card className="item-card">
-                <button
-                  className="card-pic-btn"
-                  onClick={() => handleCardClick(eachCard)}
-                >
-                  <Card.Img
-                    variant="top"
-                    src={eachCard.picture}
-                    alt={eachCard.type}
-                  />
-                </button>
+                <Card.Img
+                  variant="top"
+                  src={eachCard.picture}
+                  alt={eachCard.type}
+                />
+
                 <Card.Body>
-                  <Card.Title>{eachCard.type}</Card.Title>
+                  <Card.Title>{eachCard.type} </Card.Title>
                   <Card.Text>
                     <strong>Tenure:</strong> {eachCard.tenure}
                     <br />
@@ -34,6 +31,10 @@ function CardPage({ addToFavourite, properties, handleCardClick }) {
                     <strong>Price:</strong> ${eachCard.price.toLocaleString()}
                     <br />
                   </Card.Text>
+                  <Link to={`/product/${eachCard.id}`}>
+                    View Mor. <FaExternalLinkAlt />
+                  </Link>
+
                   <Button
                     variant="primary"
                     onClick={() => addToFavourite(eachCard)}
