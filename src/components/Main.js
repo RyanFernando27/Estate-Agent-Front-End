@@ -6,16 +6,12 @@ import NavBar from "./Navbar";
 import Favourite from "./Favourite";
 import Col from "react-bootstrap/Col";
 import Records from "../properties.json";
-import PropertyPage from "./PropertyPage.js";
 
 function Main() {
   const [favourites, setFavourites] = useState([]);
   const [filteredProperties, setFilteredProperties] = useState(
     Records.properties
   );
-
-  const [popupTrigger, setPopupTrigger] = useState(false);
-  const [selectedProperty, setSelectedProperty] = useState(null);
 
   const addToFavourite = (item) => {
     if (favourites.some((fav) => fav.id === item.id)) {
@@ -48,10 +44,6 @@ function Main() {
   const resetFilter = () => {
     setFilteredProperties(Records.properties);
   };
-  const handleCardClick = (property) => {
-    setSelectedProperty(property);
-    setPopupTrigger(true);
-  };
 
   return (
     <>
@@ -63,10 +55,8 @@ function Main() {
             <Items
               addToFavourite={addToFavourite}
               properties={filteredProperties}
-              handleCardClick={handleCardClick}
             />
           </Col>
-          <PropertyPage trigger={popupTrigger} property={selectedProperty} />
 
           <Col sm={4}>
             <Favourite
