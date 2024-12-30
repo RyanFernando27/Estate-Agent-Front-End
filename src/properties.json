@@ -15,7 +15,16 @@
                 "day": 12,
                 "year": 2022
             },
-            "images":"/propertyImages/prop1/prop1-1.jpg"
+            "images":{
+                "image1":"/propertyImages/prop1/prop1-1.jpg",
+                "image2":"/propertyImages/prop1/prop1-2.jpg",
+                "image3":"/propertyImages/prop1/prop1-3.jpg",
+                "image4":"/propertyImages/prop1/prop1-4.jpg",
+                "image5":"/propertyImages/prop1/prop1-5.jpg",
+                "image6":"/propertyImages/prop1/prop1-6.jpg",
+                "image7":"/propertyImages/prop1/prop1-7.jpg"
+            },
+            "mapSrc":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15836.847598408058!2d79.93046255!3d7.10142265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2fb62e3117a1d%3A0xacb0fce89c4ffc10!2sArogya%20Pharmacy%20%26%20Grocery!5e0!3m2!1sen!2slk!4v1735498307636!5m2!1sen!2slk"
         },
         {
             "id": "prop2",
@@ -31,7 +40,18 @@
                 "month": "September",
                 "day": 14,
                 "year": 2022
-            }
+            },
+            "images":{
+                "image1":"/propertyImages/prop1/prop1-1.jpg",
+                "image2":"/propertyImages/prop1/prop1-2.jpg",
+                "image3":"/properyImages/prop1/prop1-3.jpg",
+                "image4":"/propertyImages/prop1/prop1-4.jpg",
+                "image5":"/propertyImages/prop1/prop1-5.jpg",
+                "image6":"/propertyImages/prop1/prop1-6.jpg",
+                "image7":"/propertyImages/prop1/prop1-7.jpg"
+            },
+            "mapSrc":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17014.981222223334!2d-0.14904618732433336!3d51.49718658894636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876052f571cfeaf%3A0xe64dd44eeea79a5e!2sThe%20Athenaeum%20Hotel%20%26%20Residences!5e0!3m2!1sen!2slk!4v1735499272744!5m2!1sen!2slk"
+        
         },
         {
             "id": "prop3",
@@ -47,6 +67,15 @@
                 "month": "August",
                 "day": 5,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop1/prop1-1.jpg",
+                "image2":"/propertyImages/prop1/prop1-2.jpg",
+                "image3":"/properyImages/prop1/prop1-3.jpg",
+                "image4":"/propertyImages/prop1/prop1-4.jpg",
+                "image5":"/propertyImages/prop1/prop1-5.jpg",
+                "image6":"/propertyImages/prop1/prop1-6.jpg",
+                "image7":"/propertyImages/prop1/prop1-7.jpg"
             }
         },
         {
@@ -63,6 +92,15 @@
                 "month": "July",
                 "day": 20,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop1/prop1-1.jpg",
+                "image2":"/propertyImages/prop1/prop1-2.jpg",
+                "image3":"/properyImages/prop1/prop1-3.jpg",
+                "image4":"/propertyImages/prop1/prop1-4.jpg",
+                "image5":"/propertyImages/prop1/prop1-5.jpg",
+                "image6":"/propertyImages/prop1/prop1-6.jpg",
+                "image7":"/propertyImages/prop1/prop1-7.jpg"
             }
         },
         {
@@ -79,6 +117,15 @@
                 "month": "June",
                 "day": 10,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop1/prop1-1.jpg",
+                "image2":"/propertyImages/prop1/prop1-2.jpg",
+                "image3":"/properyImages/prop1/prop1-3.jpg",
+                "image4":"/propertyImages/prop1/prop1-4.jpg",
+                "image5":"/propertyImages/prop1/prop1-5.jpg",
+                "image6":"/propertyImages/prop1/prop1-6.jpg",
+                "image7":"/propertyImages/prop1/prop1-7.jpg"
             }
         },
         {
@@ -95,6 +142,15 @@
                 "month": "May",
                 "day": 22,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop1/prop1-1.jpg",
+                "image2":"/propertyImages/prop1/prop1-2.jpg",
+                "image3":"/properyImages/prop1/prop1-3.jpg",
+                "image4":"/propertyImages/prop1/prop1-4.jpg",
+                "image5":"/propertyImages/prop1/prop1-5.jpg",
+                "image6":"/propertyImages/prop1/prop1-6.jpg",
+                "image7":"/propertyImages/prop1/prop1-7.jpg"
             }
         },
         {
@@ -111,6 +167,15 @@
                 "month": "April",
                 "day": 15,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop1/prop1-1.jpg",
+                "image2":"/propertyImages/prop1/prop1-2.jpg",
+                "image3":"/properyImages/prop1/prop1-3.jpg",
+                "image4":"/propertyImages/prop1/prop1-4.jpg",
+                "image5":"/propertyImages/prop1/prop1-5.jpg",
+                "image6":"/propertyImages/prop1/prop1-6.jpg",
+                "image7":"/propertyImages/prop1/prop1-7.jpg"
             }
         },
         {
@@ -127,6 +192,15 @@
                 "month": "March",
                 "day": 12,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop1/prop1-1.jpg",
+                "image2":"/propertyImages/prop1/prop1-2.jpg",
+                "image3":"/properyImages/prop1/prop1-3.jpg",
+                "image4":"/propertyImages/prop1/prop1-4.jpg",
+                "image5":"/propertyImages/prop1/prop1-5.jpg",
+                "image6":"/propertyImages/prop1/prop1-6.jpg",
+                "image7":"/propertyImages/prop1/prop1-7.jpg"
             }
         },
         {
@@ -143,6 +217,15 @@
                 "month": "February",
                 "day": 28,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop1/prop1-1.jpg",
+                "image2":"/propertyImages/prop1/prop1-2.jpg",
+                "image3":"/properyImages/prop1/prop1-3.jpg",
+                "image4":"/propertyImages/prop1/prop1-4.jpg",
+                "image5":"/propertyImages/prop1/prop1-5.jpg",
+                "image6":"/propertyImages/prop1/prop1-6.jpg",
+                "image7":"/propertyImages/prop1/prop1-7.jpg"
             }
         },
         {
@@ -159,6 +242,15 @@
                 "month": "January",
                 "day": 10,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop1/prop1-1.jpg",
+                "image2":"/propertyImages/prop1/prop1-2.jpg",
+                "image3":"/properyImages/prop1/prop1-3.jpg",
+                "image4":"/propertyImages/prop1/prop1-4.jpg",
+                "image5":"/propertyImages/prop1/prop1-5.jpg",
+                "image6":"/propertyImages/prop1/prop1-6.jpg",
+                "image7":"/propertyImages/prop1/prop1-7.jpg"
             }
         }
     ]
