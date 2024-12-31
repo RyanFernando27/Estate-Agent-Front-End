@@ -1,20 +1,34 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Items from "./Items";
-import Row from "react-bootstrap/Row";
 import NavBar from "./Navbar";
 import Favourite from "./Favourite";
+import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import AdvanceSearch from "./AdvanceSearch";
 import Records from "../properties.json";
+import PopupWindow from "./PopupWindow.js";
+import Items from "./Items"; // Import Items component
 
 function Main() {
+  const [popupTrigger, setPopupTrigger] = useState(false);
+  const [selectedProperty, setSelectedProperty] = useState(null);
   const [favourites, setFavourites] = useState([]);
   const [filteredProperties, setFilteredProperties] = useState(
     Records.properties
   );
   const [showAdvanceSearch, setShowAdvanceSearch] = useState(false); // State to toggle AdvanceSearch visibility
+
+  const handleShowModal = (id) => {
+    const property = Records.properties.find((prop) => prop.id === id);
+    setSelectedProperty(property);
+    setPopupTrigger(true);
+  };
+
+  const handleCloseModal = () => {
+    setPopupTrigger(false);
+    setSelectedProperty(null);
+  };
 
   const addToFavourite = (item) => {
     if (favourites.some((fav) => fav.id === item.id)) {
@@ -23,6 +37,7 @@ function Main() {
       setFavourites([...favourites, item]);
     }
   };
+
 
   const removeFromFavourite = (id) => {
     setFavourites(favourites.filter((fav) => fav.id !== id));
@@ -33,12 +48,11 @@ function Main() {
   };
 
   const filterProperties = (type, searchInput) => {
-    const searchQuery = searchInput.toLowerCase();
     const filtered = Records.properties.filter(
       (property) =>
         property.type === type &&
-        (property.location.toLowerCase().includes(searchQuery) ||
-          property.tenure.toLowerCase().includes(searchQuery))
+        (property.location.toLowerCase().includes(searchInput.toLowerCase()) ||
+          property.tenure.toLowerCase().includes(searchInput.toLowerCase()))
     );
     setFilteredProperties(filtered);
   };
@@ -69,17 +83,28 @@ function Main() {
 
         <Row>
           <Col sm={8}>
+            {/* Use Items instead of CardPage */}
             <Items
               addToFavourite={addToFavourite}
               properties={filteredProperties}
+              handleCardClick={handleShowModal}
             />
           </Col>
+
+          {/* PopupWindow component */}
+          <PopupWindow
+            popupTrigger={popupTrigger}
+            property={selectedProperty}
+            closePopup={handleCloseModal}
+          />
 
           <Col sm={4}>
             <Favourite
               favourites={favourites}
-              removeFromFavourite={removeFromFavourite}
-              clearFavourites={clearFavourites}
+              removeFromFavourite={(id) =>
+                setFavourites(favourites.filter((fav) => fav.id !== id))
+              }
+              clearFavourites={() => setFavourites([])}
             />
           </Col>
         </Row>

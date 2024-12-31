@@ -10,7 +10,7 @@ function Items({ addToFavourite, properties, handleCardClick }) {
           <CardPage
             addToFavourite={addToFavourite}
             properties={properties}
-            handleCardClick={handleCardClick}
+            handleShowModal={handleCardClick} // Fix: Pass the correct prop name
           />
         </div>
       </div>
