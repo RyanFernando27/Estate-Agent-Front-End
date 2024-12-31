@@ -4,6 +4,8 @@ import NavBar from "./Navbar";
 import Favourite from "./Favourite";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import AdvanceSearch from "./AdvanceSearch";
 import Records from "../properties.json";
 import PopupWindow from "./PopupWindow.js";
 import Items from "./Items"; // Import Items component
@@ -15,6 +17,7 @@ function Main() {
   const [filteredProperties, setFilteredProperties] = useState(
     Records.properties
   );
+  const [showAdvanceSearch, setShowAdvanceSearch] = useState(false); // State to toggle AdvanceSearch visibility
 
   const handleShowModal = (id) => {
     const property = Records.properties.find((prop) => prop.id === id);
@@ -35,6 +38,15 @@ function Main() {
     }
   };
 
+
+  const removeFromFavourite = (id) => {
+    setFavourites(favourites.filter((fav) => fav.id !== id));
+  };
+
+  const clearFavourites = () => {
+    setFavourites([]);
+  };
+
   const filterProperties = (type, searchInput) => {
     const filtered = Records.properties.filter(
       (property) =>
@@ -53,6 +65,21 @@ function Main() {
     <>
       <div className="container">
         <NavBar filterProperties={filterProperties} resetFilter={resetFilter} />
+        <Row className="mb-3">
+          {/* Button to toggle the Advance Search component */}
+          <Button onClick={() => setShowAdvanceSearch(!showAdvanceSearch)}>
+            {showAdvanceSearch ? "Hide Advance Search" : "Show Advance Search"}
+          </Button>
+        </Row>
+
+        {/* Conditionally render the AdvanceSearch component */}
+        {showAdvanceSearch && (
+          <Row className="mb-3">
+            <Col>
+              <AdvanceSearch />
+            </Col>
+          </Row>
+        )}
 
         <Row>
           <Col sm={8}>

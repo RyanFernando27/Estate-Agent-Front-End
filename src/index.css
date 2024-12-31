@@ -42,20 +42,38 @@
   background-color: white;
 }
 
-/* .pageUp-btn {
-  position: fixed;
-
+/* Center the search container */
+.search-container {
   width: 100%;
-  left: 90%;
-  bottom: 10%;
-  height: 20px;
-  font-size: 3rem;
-  z-index: 1;
-  cursor: pointer;
-  color: rgb(32, 79, 234);
+  max-width: 400px;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-Content {
-  overflow: scroll;
-  height: 2500px;
-} */
+/* Row layout */
+.search-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Label styling */
+.search-label {
+  width: 100px;
+  margin-right: 1rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* Input styling */
+.search-input {
+  flex: 1;
+  max-width: 250px;
+  padding: 0.4rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
