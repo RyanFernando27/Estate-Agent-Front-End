@@ -2,6 +2,7 @@ import React from "react";
 import Combobox from "react-widgets/Combobox";
 import DropdownList from "react-widgets/DropdownList";
 import DatePicker from "react-widgets/DatePicker";
+import NumberPicker from "react-widgets/NumberPicker";
 import "react-widgets/styles.css";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -36,25 +37,37 @@ function AdvanceSearch() {
             <label className="search-label">
               <strong>Location:</strong>
             </label>
-            <input name="myInput " className="search-input" />
+            <input
+              name="myInput "
+              className="search-input"
+              placeholder="Oak Avenue"
+            />
           </div>
           <div className="search-row">
             <label className="search-label">
               <strong>Bedrooms:</strong>
             </label>
-            <input name="myInput " className="search-input" />
+            <NumberPicker max={5} className="search-label" />
           </div>
           <div className="search-row">
             <label className="search-label">
-              <strong>Min Price:</strong>
+              <strong>Min Price: $</strong>
             </label>
-            <input name="myInput " className="search-input" />
+            <input
+              name="myInput "
+              className="search-input"
+              placeholder="40000"
+            />
           </div>
           <div className="search-row">
             <label className="search-label">
-              <strong>Max Price:</strong>
+              <strong>Max Price: $</strong>
             </label>
-            <input name="myInput " className="search-input" />
+            <input
+              name="myInput "
+              className="search-input"
+              placeholder="1000000"
+            />
           </div>
 
           <div className="search-row">
