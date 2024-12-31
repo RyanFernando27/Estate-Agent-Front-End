@@ -5,6 +5,8 @@ import Row from "react-bootstrap/Row";
 import NavBar from "./Navbar";
 import Favourite from "./Favourite";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import AdvanceSearch from "./AdvanceSearch";
 import Records from "../properties.json";
 
 function Main() {
@@ -12,6 +14,7 @@ function Main() {
   const [filteredProperties, setFilteredProperties] = useState(
     Records.properties
   );
+  const [showAdvanceSearch, setShowAdvanceSearch] = useState(false); // State to toggle AdvanceSearch visibility
 
   const addToFavourite = (item) => {
     if (favourites.some((fav) => fav.id === item.id)) {
@@ -25,7 +28,6 @@ function Main() {
     setFavourites(favourites.filter((fav) => fav.id !== id));
   };
 
-  // Function to clear all favourites
   const clearFavourites = () => {
     setFavourites([]);
   };
@@ -49,6 +51,21 @@ function Main() {
     <>
       <div className="container">
         <NavBar filterProperties={filterProperties} resetFilter={resetFilter} />
+        <Row className="mb-3">
+          {/* Button to toggle the Advance Search component */}
+          <Button onClick={() => setShowAdvanceSearch(!showAdvanceSearch)}>
+            {showAdvanceSearch ? "Hide Advance Search" : "Show Advance Search"}
+          </Button>
+        </Row>
+
+        {/* Conditionally render the AdvanceSearch component */}
+        {showAdvanceSearch && (
+          <Row className="mb-3">
+            <Col>
+              <AdvanceSearch />
+            </Col>
+          </Row>
+        )}
 
         <Row>
           <Col sm={8}>

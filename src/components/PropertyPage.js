@@ -4,7 +4,6 @@ import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { GrNext } from "react-icons/gr";
 import { GrLinkPrevious } from "react-icons/gr";
-
 import { GrPrevious } from "react-icons/gr";
 import "react-tabs/style/react-tabs.css";
 
@@ -47,9 +46,15 @@ const PropertyPage = ({ properties }) => {
   return (
     <Container className="my-4">
       <Link to="/" className="btn btn-primary mb-4">
-        <GrLinkPrevious />
+        <GrLinkPrevious /> Go Back
       </Link>
       <Row>
+        <h5>{property.type}</h5>
+        <h5>${property.price.toLocaleString()}</h5>
+
+        <h5>{property.location}</h5>
+
+        <h5> </h5>
         <Col md={6}>
           {/* Display the main image */}
           <Image src={selectedImage} alt={property.type} fluid />
@@ -93,18 +98,9 @@ const PropertyPage = ({ properties }) => {
             </TabList>
 
             <TabPanel>
-              <h1>{property.type}</h1>
-              <p>
-                <strong>Location:</strong> {property.location}
-              </p>
-              <p>
-                <strong>Tenure:</strong> {property.tenure}
-              </p>
+              <strong>Tenure:</strong> {property.tenure}
               <p>
                 <strong>Bedrooms:</strong> {property.bedrooms}
-              </p>
-              <p>
-                <strong>Price:</strong> ${property.price.toLocaleString()}
               </p>
               <p>
                 <strong>Description:</strong> {property.description}
@@ -119,6 +115,9 @@ const PropertyPage = ({ properties }) => {
               <h2>Image Gallery</h2>
             </TabPanel>
             <TabPanel>
+              <p>
+                <h5>{property.location}</h5>
+              </p>
               <iframe
                 src={property.mapSrc}
                 width="600"
