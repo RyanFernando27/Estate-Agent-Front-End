@@ -1,11 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { FaExternalLinkAlt } from "react-icons/fa";
 
-function CardPage({ addToFavourite, properties }) {
+function CardPage({ addToFavourite, properties, handleShowModal }) {
   return (
     <>
       <Container className="my-4">
@@ -20,7 +19,7 @@ function CardPage({ addToFavourite, properties }) {
                 />
 
                 <Card.Body>
-                  <Card.Title>{eachCard.type} </Card.Title>
+                  <Card.Title>{eachCard.type}</Card.Title>
                   <Card.Text>
                     <strong>Tenure:</strong> {eachCard.tenure}
                     <br />
@@ -31,9 +30,13 @@ function CardPage({ addToFavourite, properties }) {
                     <strong>Price:</strong> ${eachCard.price.toLocaleString()}
                     <br />
                   </Card.Text>
-                  <Link to={`/product/${eachCard.id}`}>
-                    View Mor. <FaExternalLinkAlt />
-                  </Link>
+                  {/* Update this link to trigger the popup */}
+                  <Button
+                    variant="link"
+                    onClick={() => handleShowModal(eachCard.id)} // Trigger the modal
+                  >
+                    View More <FaExternalLinkAlt />
+                  </Button>
 
                   <Button
                     variant="primary"
