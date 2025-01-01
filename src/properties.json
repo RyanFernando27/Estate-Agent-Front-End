@@ -8,13 +8,23 @@
             "tenure": "Freehold",
             "description": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior...",
             "location": "Petts Wood Road, Petts Wood, Orpington BR5",
-            "picture": "images/prop1pic1small.jpg",
-            "url": "properties/prop1.html",
+            "picture": "/images/prop1.jpg",
+            "url": "/propertyPages/prop1.html",
             "added": {
                 "month": "October",
                 "day": 12,
                 "year": 2022
-            }
+            },
+            "images":{
+                "image1":"/propertyImages/prop1/prop1-1.jpg",
+                "image2":"/propertyImages/prop1/prop1-2.jpg",
+                "image3":"/propertyImages/prop1/prop1-3.jpg",
+                "image4":"/propertyImages/prop1/prop1-4.jpg",
+                "image5":"/propertyImages/prop1/prop1-5.jpg",
+                "image6":"/propertyImages/prop1/prop1-6.jpeg",
+                "image7":"/propertyImages/prop1/prop1-7.jpeg"
+            },
+            "mapSrc":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15836.847598408058!2d79.93046255!3d7.10142265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2fb62e3117a1d%3A0xacb0fce89c4ffc10!2sArogya%20Pharmacy%20%26%20Grocery!5e0!3m2!1sen!2slk!4v1735498307636!5m2!1sen!2slk"
         },
         {
             "id": "prop2",
@@ -24,140 +34,223 @@
             "tenure": "Freehold",
             "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
             "location": "Crofton Road Orpington BR6",
-            "picture": "images/prop2pic1small.jpg",
+            "picture": "/images/prop2.jpg",
             "url": "properties/prop2.html",
             "added": {
                 "month": "September",
                 "day": 14,
                 "year": 2022
-            }
+            },
+            "images":{
+                "image1":"/propertyImages/prop2/prop2-1.jpg",
+                "image2":"/propertyImages/prop2/prop2-2.jpg",
+                "image3":"/propertyImages/prop2/prop2-3.jpg",
+                "image4":"/propertyImages/prop2/prop2-4.jpg",
+                "image5":"/propertyImages/prop2/prop2-5.jpg",
+                "image6":"/propertyImages/prop2/prop2-6.jpeg",
+                "image7":"/propertyImages/prop2/prop2-7.jpeg"
+            },
+            "mapSrc":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17014.981222223334!2d-0.14904618732433336!3d51.49718658894636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876052f571cfeaf%3A0xe64dd44eeea79a5e!2sThe%20Athenaeum%20Hotel%20%26%20Residences!5e0!3m2!1sen!2slk!4v1735499272744!5m2!1sen!2slk"
+        
         },
         {
             "id": "prop3",
-            "type": "Apartment",
+            "type": "Flat",
             "bedrooms": 1,
             "price": 250000,
             "tenure": "Leasehold",
             "description": "One bedroom top floor apartment with stunning views over the city. Ideal for first-time buyers or investors, this property features a modern open-plan kitchen and living area, spacious bedroom with built-in wardrobes, and a luxurious bathroom. The property is located close to transport links and local amenities.",
             "location": "High Street, Bromley BR1",
-            "picture": "images/prop3pic1small.jpg",
+            "picture": "/images/prop3.jpg",
             "url": "properties/prop3.html",
             "added": {
                 "month": "August",
                 "day": 5,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop3/prop3-1.jpg",
+                "image2":"/propertyImages/prop3/prop3-2.jpg",
+                "image3":"/propertyImages/prop3/prop3-3.jpg",
+                "image4":"/propertyImages/prop3/prop3-4.jpg",
+                "image5":"/propertyImages/prop3/prop3-5.jpg",
+                "image6":"/propertyImages/prop3/prop3-6.jpeg",
+                "image7":"/propertyImages/prop3/prop3-7.jpeg"
             }
         },
         {
             "id": "prop4",
-            "type": "Detached House",
+            "type": "House",
             "bedrooms": 5,
             "price": 1200000,
             "tenure": "Freehold",
             "description": "Luxurious five-bedroom detached house situated in a quiet cul-de-sac. Featuring a spacious lounge, a modern kitchen with an island, a dining area, five double bedrooms (two with en-suites), a family bathroom, and a landscaped garden with a patio area. Double garage and ample driveway parking.",
             "location": "Oak Avenue, Chislehurst BR7",
-            "picture": "images/prop4pic1small.jpg",
+            "picture": "/images/prop4.jpeg",
             "url": "properties/prop4.html",
             "added": {
                 "month": "July",
                 "day": 20,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop4/prop4-1.jpeg",
+                "image2":"/propertyImages/prop4/prop4-2.jpeg",
+                "image3":"/propertyImages/prop4/prop4-3.jpeg",
+                "image4":"/propertyImages/prop4/prop4-4.jpeg",
+                "image5":"/propertyImages/prop4/prop4-5.jpeg",
+                "image6":"/propertyImages/prop4/prop4-6.jpeg",
+                "image7":"/propertyImages/prop4/prop4-7.jpeg"
             }
         },
         {
             "id": "prop5",
-            "type": "Cottage",
+            "type": "House",
             "bedrooms": 2,
             "price": 325000,
             "tenure": "Freehold",
             "description": "Charming two-bedroom period cottage with original features including exposed beams and a fireplace. The property offers a cozy living room, a country-style kitchen, two bedrooms, a modern bathroom, and a private garden. Located in a picturesque village with local shops and pubs.",
             "location": "Village Lane, Farnborough BR6",
-            "picture": "images/prop5pic1small.jpg",
+            "picture": "/images/prop5.jpg",
             "url": "properties/prop5.html",
             "added": {
                 "month": "June",
                 "day": 10,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop5/prop5-1.jpg",
+                "image2":"/propertyImages/prop5/prop5-2.jpg",
+                "image3":"/propertyImages/prop5/prop5-3.jpg",
+                "image4":"/propertyImages/prop5/prop5-4.jpg",
+                "image5":"/propertyImages/prop5/prop5-5.jpg",
+                "image6":"/propertyImages/prop5/prop5-6.jpeg",
+                "image7":"/propertyImages/prop5/prop5-7.jpeg"
             }
         },
         {
             "id": "prop6",
-            "type": "Bungalow",
+            "type": "Flat",
             "bedrooms": 3,
             "price": 450000,
             "tenure": "Freehold",
             "description": "Spacious three-bedroom bungalow in a sought-after area. Features include a large living room, a fully fitted kitchen, three generous bedrooms, a family bathroom, and a conservatory. The property is surrounded by a well-maintained garden and offers a garage with additional parking space.",
             "location": "Park Road, Sidcup DA14",
-            "picture": "images/prop6pic1small.jpg",
+            "picture": "/images/prop6.jpg",
             "url": "properties/prop6.html",
             "added": {
                 "month": "May",
                 "day": 22,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop6/prop6-1.jpg",
+                "image2":"/propertyImages/prop6/prop6-2.jpg",
+                "image3":"/propertyImages/prop6/prop6-3.jpg",
+                "image4":"/propertyImages/prop6/prop6-4.jpg",
+                "image5":"/propertyImages/prop6/prop6-5.jpg",
+                "image6":"/propertyImages/prop6/prop6-6.jpeg",
+                "image7":"/propertyImages/prop6/prop6-7.jpeg"
             }
         },
         {
             "id": "prop7",
-            "type": "Studio",
+            "type": "Flat",
             "bedrooms": 0,
             "price": 175000,
             "tenure": "Leasehold",
             "description": "Modern studio apartment perfect for singles or investors. Located in a vibrant urban area, the property features a well-equipped kitchenette, a stylish bathroom, and a cleverly designed living/sleeping area. Secure entry and excellent transport links.",
             "location": "Station Road, Beckenham BR3",
-            "picture": "images/prop7pic1small.jpg",
+            "picture": "/images/prop7.jpg",
             "url": "properties/prop7.html",
             "added": {
                 "month": "April",
                 "day": 15,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop7/prop7-1.jpg",
+                "image2":"/propertyImages/prop7/prop7-2.jpg",
+                "image3":"/propertyImages/prop7/prop7-3.jpg",
+                "image4":"/propertyImages/prop7/prop7-4.jpg",
+                "image5":"/propertyImages/prop7/prop7-5.jpg",
+                "image6":"/propertyImages/prop7/prop7-6.jpeg",
+                "image7":"/propertyImages/prop7/prop7-7.jpeg"
             }
         },
         {
             "id": "prop8",
-            "type": "Maisonette",
+            "type": "House",
             "bedrooms": 2,
             "price": 280000,
             "tenure": "Leasehold",
             "description": "Spacious two-bedroom maisonette with its own private entrance. This property features a bright living room, a modern kitchen, two double bedrooms, and a contemporary bathroom. Located close to schools and parks, it includes allocated parking and communal gardens.",
             "location": "Elm Grove, Orpington BR6",
-            "picture": "images/prop8pic1small.jpg",
+            "picture": "/images/prop8.jpg",
             "url": "properties/prop8.html",
             "added": {
                 "month": "March",
                 "day": 12,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop8/prop8-1.jpg",
+                "image2":"/propertyImages/prop8/prop8-2.jpg",
+                "image3":"/propertyImages/prop8/prop8-3.jpg",
+                "image4":"/propertyImages/prop8/prop8-4.jpg",
+                "image5":"/propertyImages/prop8/prop8-5.jpg",
+                "image6":"/propertyImages/prop8/prop8-6.jpeg",
+                "image7":"/propertyImages/prop8/prop8-7.jpeg"
             }
         },
         {
             "id": "prop9",
-            "type": "Terraced House",
+            "type": "House",
             "bedrooms": 3,
             "price": 375000,
             "tenure": "Freehold",
             "description": "Well-maintained three-bedroom terraced house featuring a spacious lounge, a dining area, a fully equipped kitchen, and a family bathroom. The property also offers a private rear garden and on-street parking. Close to local amenities and transport links.",
             "location": "Main Road, Swanley BR8",
-            "picture": "images/prop9pic1small.jpg",
+            "picture": "/images/prop9.jpeg",
             "url": "properties/prop9.html",
             "added": {
                 "month": "February",
                 "day": 28,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop9/prop9-1.jpeg",
+                "image2":"/propertyImages/prop9/prop9-2.jpeg",
+                "image3":"/propertyImages/prop9/prop9-3.jpeg",
+                "image4":"/propertyImages/prop9/prop9-4.jpeg",
+                "image5":"/propertyImages/prop9/prop9-5.jpeg",
+                "image6":"/propertyImages/prop9/prop9-6.jpeg",
+                "image7":"/propertyImages/prop9/prop9-7.jpeg"
             }
         },
         {
             "id": "prop10",
-            "type": "Penthouse",
+            "type": "Flat",
             "bedrooms": 4,
             "price": 1800000,
             "tenure": "Leasehold",
             "description": "Stunning four-bedroom penthouse apartment with panoramic city views. This property boasts a large open-plan living area, a high-spec kitchen, four luxurious bedrooms, three bathrooms, and a private rooftop terrace. Secure underground parking included.",
             "location": "City Center, London EC1",
-            "picture": "images/prop10pic1small.jpg",
+            "picture": "/images/prop10.jpeg",
             "url": "properties/prop10.html",
             "added": {
                 "month": "January",
                 "day": 10,
                 "year": 2023
+            },
+            "images":{
+                "image1":"/propertyImages/prop10/prop10-1.jpeg",
+                "image2":"/propertyImages/prop10/prop10-2.jpeg",
+                "image3":"/propertyImages/prop10/prop10-3.jpeg",
+                "image4":"/propertyImages/prop10/prop10-4.jpeg",
+                "image5":"/propertyImages/prop10/prop10-5.jpeg",
+                "image6":"/propertyImages/prop10/prop10-6.jpeg",
+                "image7":"/propertyImages/prop10/prop10-7.jpeg"
             }
         }
     ]
