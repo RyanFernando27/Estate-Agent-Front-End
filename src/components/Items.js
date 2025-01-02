@@ -1,7 +1,12 @@
 import React from "react";
 import CardPage from "./CardPage";
 
-function Items({ addToFavourite, properties, handleCardClick }) {
+function Items({
+  addToFavourite,
+  properties,
+  handleCardClick,
+  handleDragStart,
+}) {
   return (
     <div className="container container-style">
       <div className="row justify-content-center">
@@ -10,7 +15,8 @@ function Items({ addToFavourite, properties, handleCardClick }) {
           <CardPage
             addToFavourite={addToFavourite}
             properties={properties}
-            handleShowModal={handleCardClick} // Fix: Pass the correct prop name
+            handleShowModal={handleCardClick}
+            handleDragStart={handleDragStart} // Pass the correct prop name for drag event handler
           />
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import AdvanceSearch from "./AdvanceSearch";
 import Favourite from "./Favourite"; // Import Favourite component
@@ -8,11 +8,12 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Records from "../properties.json";
-import Collapse from "react-bootstrap/Collapse";
 import Items from "./Items"; // Import Items component
 
 function Main() {
-  const [open, setOpen] = useState(false);
+  const handleDragStart = (e, property) => {
+    e.dataTransfer.setData("property", JSON.stringify(property)); // Store property data in the drag event
+  };
   const [properties, setProperties] = useState(Records.properties);
   const [popupTrigger, setPopupTrigger] = useState(false);
   const [selectedProperty, setSelectedProperty] = useState(null);
@@ -20,7 +21,20 @@ function Main() {
   const [filteredProperties, setFilteredProperties] = useState(
     Records.properties
   );
-  const [showAdvanceSearch, setShowAdvanceSearch] = useState(false); // State to toggle AdvanceSearch visibility
+  const [showAdvanceSearch, setShowAdvanceSearch] = useState(false);
+
+  // Load favorites from localStorage when the component mounts
+  useEffect(() => {
+    const storedFavourites = JSON.parse(localStorage.getItem("favourites"));
+    if (storedFavourites) {
+      setFavourites(storedFavourites);
+    }
+  }, []);
+
+  // Save favorites to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+  }, [favourites]);
 
   const handleShowModal = (id) => {
     const property = Records.properties.find((prop) => prop.id === id);
@@ -74,7 +88,6 @@ function Main() {
       bedroomsMax,
       priceMin,
       priceMax,
-      date,
     } = filters;
 
     const filtered = properties.filter((property) => {
@@ -106,7 +119,6 @@ function Main() {
     setFilteredProperties(properties);
   };
 
-  // Toggle AdvanceSearch visibility
   const toggleAdvanceSearch = () => {
     setShowAdvanceSearch((prev) => !prev);
   };
@@ -117,25 +129,22 @@ function Main() {
         filterProperties={handleNavBarFilter}
         resetFilter={resetNavBarFilter}
       />
-      {/* Button to toggle AdvanceSearch */}
       <Button onClick={toggleAdvanceSearch} className="mb-2">
         {showAdvanceSearch ? "Hide Advanced Search" : "Show Advanced Search"}
       </Button>
-      {/* Conditionally render AdvanceSearch */}
       {showAdvanceSearch && (
         <AdvanceSearch onSearch={handleAdvanceSearchFilter} />
       )}
 
-      {/* Row containing Items and Favourite components */}
       <Row>
         <Col md={8}>
           <Items
+            handleDragStart={handleDragStart} // Pass drag event handler
             properties={filteredProperties}
             addToFavourite={addToFavourite}
             handleCardClick={handleShowModal}
           />
         </Col>
-        {/* PopupWindow component */}
         <PopupWindow
           popupTrigger={popupTrigger}
           property={selectedProperty}
@@ -144,6 +153,7 @@ function Main() {
         <Col md={4}>
           <Favourite
             favourites={favourites}
+            setFavourites={setFavourites} // Ensure this is passed correctly
             removeFromFavourite={removeFromFavourite}
             clearFavourites={clearFavourites}
           />

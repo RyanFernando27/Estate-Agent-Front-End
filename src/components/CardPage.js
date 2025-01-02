@@ -4,14 +4,23 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-function CardPage({ addToFavourite, properties, handleShowModal }) {
+function CardPage({
+  addToFavourite,
+  properties,
+  handleShowModal,
+  handleDragStart,
+}) {
   return (
     <>
       <Container className="my-4">
         <Row>
           {properties.map((eachCard) => (
             <Col md={4} key={eachCard.id} className="mb-4">
-              <Card className="item-card">
+              <Card
+                className="item-card"
+                draggable // Enable dragging for the card
+                onDragStart={(e) => handleDragStart(e, eachCard)} // Use the passed drag start handler
+              >
                 <Card.Img
                   variant="top"
                   src={eachCard.picture}
@@ -30,7 +39,6 @@ function CardPage({ addToFavourite, properties, handleShowModal }) {
                     <strong>Price:</strong> ${eachCard.price.toLocaleString()}
                     <br />
                   </Card.Text>
-                  {/* Update this link to trigger the popup */}
                   <Button
                     variant="link"
                     onClick={() => handleShowModal(eachCard.id)} // Trigger the modal

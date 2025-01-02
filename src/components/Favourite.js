@@ -1,9 +1,30 @@
 import React from "react";
 import "../index.css";
-
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
-function Favourite({ favourites, removeFromFavourite, clearFavourites }) {
+function Favourite({
+  favourites,
+  setFavourites, // Receive setFavourites from props
+  removeFromFavourite,
+  clearFavourites,
+}) {
+  const handleDrop = (e) => {
+    e.preventDefault();
+    try {
+      const droppedProperty = JSON.parse(e.dataTransfer.getData("property"));
+      // Add the dropped property to the favourites if not already there
+      if (!favourites.some((fav) => fav.id === droppedProperty.id)) {
+        setFavourites((prev) => [...prev, droppedProperty]); // Use setFavourites here
+      }
+    } catch (error) {
+      console.error("Error parsing dropped property:", error);
+    }
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault(); // Allow dropping
+  };
+
   const handleClearAll = () => {
     const isConfirmed = window.confirm(
       "Are you sure you want to delete all items?"
@@ -14,7 +35,11 @@ function Favourite({ favourites, removeFromFavourite, clearFavourites }) {
   };
 
   return (
-    <Container className="container-style">
+    <Container
+      className="container-style"
+      onDrop={handleDrop}
+      onDragOver={handleDragOver}
+    >
       <Row className="justify-content-between align-items-center p-4">
         <Col>
           <h2 className="mb-0">Favourite</h2>
