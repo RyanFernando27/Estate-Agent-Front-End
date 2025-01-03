@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import Combobox from "react-widgets/Combobox";
 import DropdownList from "react-widgets/DropdownList";
 import DatePicker from "react-widgets/DatePicker";
 import NumberPicker from "react-widgets/NumberPicker";
 import Button from "react-bootstrap/Button";
 import { GrLinkNext } from "react-icons/gr";
 import "react-widgets/styles.css";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 function AdvanceSearch({ onSearch }) {
   const [filters, setFilters] = useState({
@@ -17,7 +16,7 @@ function AdvanceSearch({ onSearch }) {
     bedroomsMax: null,
     priceMin: "",
     priceMax: "",
-    date: null,
+    dateRange: { start: null, end: null }, // Date range filter
   });
 
   const handleInputChange = (key, value) => {
@@ -25,13 +24,14 @@ function AdvanceSearch({ onSearch }) {
   };
 
   const handleSearch = () => {
-    onSearch(filters);
+    onSearch(filters); // Pass all filters, including the date range, to the parent component
   };
 
   return (
-    <Container className="d-flex justify-content-center align-items-center mt-2">
-      <div className="search-container">
-        <div className="search-row">
+    <Container className="mt-4 mb-5">
+      <Row className="gy-3">
+        {/* Row 1: Type and Tenure */}
+        <Col md={6}>
           <label className="search-label">
             <strong>Type:</strong>
           </label>
@@ -40,9 +40,8 @@ function AdvanceSearch({ onSearch }) {
             data={["House", "Flat"]}
             onChange={(value) => handleInputChange("type", value)}
           />
-        </div>
-
-        <div className="search-row">
+        </Col>
+        <Col md={6}>
           <label className="search-label">
             <strong>Tenure:</strong>
           </label>
@@ -51,76 +50,101 @@ function AdvanceSearch({ onSearch }) {
             data={["Freehold", "Leasehold"]}
             onChange={(value) => handleInputChange("tenure", value)}
           />
-        </div>
+        </Col>
 
-        <div className="search-row">
+        {/* Row 2: Location */}
+        <Col md={12}>
           <label className="search-label">
             <strong>Location:</strong>
           </label>
           <input
-            className="search-input"
-            placeholder="Enter location"
+            className="form-control"
+            placeholder="Petts Wood Road, Petts Wood, Orpington BR5"
             onChange={(e) => handleInputChange("location", e.target.value)}
           />
-        </div>
+        </Col>
 
-        <div className="search-row">
+        {/* Row 3: Bedrooms */}
+        <Col md={6}>
           <label className="search-label">
-            <strong>Bedrooms:</strong>
+            <strong>Min Bedrooms:</strong>
           </label>
           <NumberPicker
             max={5}
             min={0}
             onChange={(value) => handleInputChange("bedroomsMin", value)}
-            placeholder="Min"
           />
+        </Col>
+        <Col md={6}>
+          <label className="search-label ">
+            <strong>Max Bedrooms:</strong>
+          </label>
           <NumberPicker
             max={5}
             min={0}
             onChange={(value) => handleInputChange("bedroomsMax", value)}
-            placeholder="Max"
           />
-        </div>
+        </Col>
 
-        <div className="search-row">
+        {/* Row 4: Price */}
+        <Col md={6}>
           <label className="search-label">
             <strong>Min Price: $</strong>
           </label>
           <input
-            className="search-input"
+            className="form-control"
             placeholder="Min Price"
             onChange={(e) => handleInputChange("priceMin", e.target.value)}
           />
-        </div>
-
-        <div className="search-row">
+        </Col>
+        <Col md={6}>
           <label className="search-label">
             <strong>Max Price: $</strong>
           </label>
           <input
-            className="search-input"
+            className="form-control"
             placeholder="Max Price"
             onChange={(e) => handleInputChange("priceMax", e.target.value)}
           />
-        </div>
+        </Col>
 
-        {/* <div className="search-row">
+        {/* Row 5: Date Range */}
+        <Col md={6}>
           <label className="search-label">
-            <strong>Date:</strong>
+            <strong>Start Date:</strong>
           </label>
           <DatePicker
-            placeholder="m/dd/yy"
-            onChange={(value) => handleInputChange("date", value)}
+            placeholder="Start Date"
+            onChange={(value) =>
+              handleInputChange("dateRange", {
+                ...filters.dateRange,
+                start: value,
+              })
+            }
           />
-        </div> */}
+        </Col>
+        <Col md={6}>
+          <label className="search-label">
+            <strong>End Date:</strong>
+          </label>
+          <DatePicker
+            placeholder="End Date"
+            onChange={(value) =>
+              handleInputChange("dateRange", {
+                ...filters.dateRange,
+                end: value,
+              })
+            }
+          />
+        </Col>
 
-        <div>
+        {/* Row 6: Search Button */}
+        <Col md={12} className="text-center mt-3">
           <Button onClick={handleSearch}>
-            Search
-            <GrLinkNext />
+            Search <GrLinkNext />
           </Button>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </Container>
   );
 }
