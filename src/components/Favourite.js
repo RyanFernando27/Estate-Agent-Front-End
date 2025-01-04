@@ -21,14 +21,6 @@ function Favourite({
     e.dataTransfer.setData("favouriteId", id);
   };
 
-  const handleDropOutside = (e) => {
-    e.preventDefault();
-    const draggedFavouriteId = e.dataTransfer.getData("favouriteId");
-    setFavourites((prev) =>
-      prev.filter((fav) => fav.id !== draggedFavouriteId)
-    );
-  };
-
   const handleClearAll = () => {
     const isConfirmed = window.confirm(
       "Are you sure you want to delete all items?"

@@ -127,11 +127,6 @@ function Main() {
 
     setFilteredProperties(filtered);
   };
-
-  const resetAdvanceSearchFilter = () => {
-    setFilteredProperties(properties);
-  };
-
   const toggleAdvanceSearch = () => {
     setShowAdvanceSearch((prev) => !prev);
   };
