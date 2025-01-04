@@ -3,11 +3,37 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { Row, Col, Image, Button } from "react-bootstrap";
+import {
+  APIProvider,
+  Map,
+  AdvancedMarker,
+  Pin,
+} from "@vis.gl/react-google-maps";
 
 function PopupWindow({ popupTrigger, property, closePopup }) {
   const [selectedImage, setSelectedImage] = useState(""); // State to store selected image
 
-  // Navigate to the next or previous image
+  const [position, setPosition] = useState({
+    lat: parseFloat(property?.location?.lat || 0), // Set the latitude of the property
+    lng: parseFloat(property?.location?.lng || 0), // Set the longitude of the property
+  });
+
+  // Set the first image as the default selected image when the property changes
+  useEffect(() => {
+    if (property?.images) {
+      const firstImageKey = Object.keys(property.images)[0]; // Get the first key
+      setSelectedImage(property.images[firstImageKey]); // Set the first image
+    }
+
+    // Update position when property location changes
+    if (property?.location) {
+      setPosition({
+        lat: parseFloat(property?.mapSrc?.lat || 0),
+        lng: parseFloat(property?.mapSrc?.lng || 0),
+      });
+    }
+  }, [property]);
+
   const navigateImage = (direction) => {
     const imageKeys = Object.keys(property.images);
     const currentIndex = imageKeys.findIndex(
@@ -23,14 +49,6 @@ function PopupWindow({ popupTrigger, property, closePopup }) {
 
     setSelectedImage(property.images[imageKeys[newIndex]]);
   };
-
-  useEffect(() => {
-    // Set the first image as the default selected image when the property changes
-    if (property?.images) {
-      const firstImageKey = Object.keys(property.images)[0]; // Get the first key
-      setSelectedImage(property.images[firstImageKey]); // Set the first image
-    }
-  }, [property]);
 
   return popupTrigger ? (
     <div className="popup">
@@ -52,6 +70,10 @@ function PopupWindow({ popupTrigger, property, closePopup }) {
           className="btn-close position-absolute top-0 end-0 m-3"
           aria-label="Close"
           onClick={closePopup}
+          style={{
+            zIndex: 10,
+            backgroundColor: "white",
+          }}
         ></button>
         {property && (
           <>
@@ -115,8 +137,25 @@ function PopupWindow({ popupTrigger, property, closePopup }) {
                   </TabPanel>
 
                   <TabPanel>
-                    <h2>Map</h2>
-                    {/* Add map content here */}
+                    <div style={{ height: "300px", width: "100%" }}>
+                      <APIProvider apiKey="AIzaSyAgqHzz2dnZjPak07ZPzQeGHPPdtTTl81k">
+                        <div style={{ height: "200px", width: "100%" }}>
+                          <Map
+                            zoom={9}
+                            center={position}
+                            mapId="a8f30e48a9a4836b"
+                          >
+                            <AdvancedMarker position={position}>
+                              <Pin
+                                background={"red"}
+                                borderColor={"black"}
+                                glyphColor={"grey"}
+                              />
+                            </AdvancedMarker>
+                          </Map>
+                        </div>
+                      </APIProvider>
+                    </div>
                   </TabPanel>
                 </Tabs>
               </Col>

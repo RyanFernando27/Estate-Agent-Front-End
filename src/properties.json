@@ -24,7 +24,10 @@
                 "image6":"/propertyImages/prop1/prop1-6.jpeg",
                 "image7":"/propertyImages/prop1/prop1-7.jpeg"
             },
-            "mapSrc":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15836.847598408058!2d79.93046255!3d7.10142265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2fb62e3117a1d%3A0xacb0fce89c4ffc10!2sArogya%20Pharmacy%20%26%20Grocery!5e0!3m2!1sen!2slk!4v1735498307636!5m2!1sen!2slk"
+            "mapSrc":{
+                "lat":51.5074,
+                "lng": -0.1278
+              }
         },
         {
             "id": "prop2",
@@ -50,7 +53,10 @@
                 "image6":"/propertyImages/prop2/prop2-6.jpeg",
                 "image7":"/propertyImages/prop2/prop2-7.jpeg"
             },
-            "mapSrc":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17014.981222223334!2d-0.14904618732433336!3d51.49718658894636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876052f571cfeaf%3A0xe64dd44eeea79a5e!2sThe%20Athenaeum%20Hotel%20%26%20Residences!5e0!3m2!1sen!2slk!4v1735499272744!5m2!1sen!2slk"
+            "mapSrc":{
+                "lat":53.4808,
+                "lng": -2.2426
+              }
         
         },
         {
@@ -76,8 +82,13 @@
                 "image5":"/propertyImages/prop3/prop3-5.jpg",
                 "image6":"/propertyImages/prop3/prop3-6.jpeg",
                 "image7":"/propertyImages/prop3/prop3-7.jpeg"
-            }
-        },
+            },
+            "mapSrc":{
+                "lat":51.4545,
+                "lng": -2.5879
+              }
+            },
+            
         {
             "id": "prop4",
             "type": "House",
@@ -101,7 +112,11 @@
                 "image5":"/propertyImages/prop4/prop4-5.jpeg",
                 "image6":"/propertyImages/prop4/prop4-6.jpeg",
                 "image7":"/propertyImages/prop4/prop4-7.jpeg"
-            }
+            },
+            "mapSrc":{
+                "lat":55.9533,
+                "lng": -3.1883
+              }
         },
         {
             "id": "prop5",
@@ -126,7 +141,11 @@
                 "image5":"/propertyImages/prop5/prop5-5.jpg",
                 "image6":"/propertyImages/prop5/prop5-6.jpeg",
                 "image7":"/propertyImages/prop5/prop5-7.jpeg"
-            }
+            },
+            "mapSrc":{
+                "lat":52.4862,
+                "lng": -1.8904
+              }
         },
         {
             "id": "prop6",
@@ -151,7 +170,11 @@
                 "image5":"/propertyImages/prop6/prop6-5.jpg",
                 "image6":"/propertyImages/prop6/prop6-6.jpeg",
                 "image7":"/propertyImages/prop6/prop6-7.jpeg"
-            }
+            },
+            "mapSrc":{
+                "lat":55.8642,
+                "lng": -4.2518
+              }
         },
         {
             "id": "prop7",
@@ -176,7 +199,11 @@
                 "image5":"/propertyImages/prop7/prop7-5.jpg",
                 "image6":"/propertyImages/prop7/prop7-6.jpeg",
                 "image7":"/propertyImages/prop7/prop7-7.jpeg"
-            }
+            },
+            "mapSrc":{
+                "lat":53.4084,
+                "lng": -2.9916
+              }
         },
         {
             "id": "prop8",
@@ -201,7 +228,11 @@
                 "image5":"/propertyImages/prop8/prop8-5.jpg",
                 "image6":"/propertyImages/prop8/prop8-6.jpeg",
                 "image7":"/propertyImages/prop8/prop8-7.jpeg"
-            }
+            },
+            "mapSrc":{
+                "lat":53.8008,
+                "lng": -1.5491
+              }
         },
         {
             "id": "prop9",
@@ -226,7 +257,11 @@
                 "image5":"/propertyImages/prop9/prop9-5.jpeg",
                 "image6":"/propertyImages/prop9/prop9-6.jpeg",
                 "image7":"/propertyImages/prop9/prop9-7.jpeg"
-            }
+            },
+            "mapSrc":{
+                "lat":51.4816,
+                "lng": -3.1791
+              }
         },
         {
             "id": "prop10",
@@ -251,7 +286,11 @@
                 "image5":"/propertyImages/prop10/prop10-5.jpeg",
                 "image6":"/propertyImages/prop10/prop10-6.jpeg",
                 "image7":"/propertyImages/prop10/prop10-7.jpeg"
-            }
+            },
+            "mapSrc":{
+                "lat":53.3811,
+                "lng": -1.4701
+              }
         }
     ]
 }
