@@ -138,7 +138,9 @@ function PopupWindow({ popupTrigger, property, closePopup }) {
 
                   <TabPanel>
                     <div style={{ height: "300px", width: "100%" }}>
-                      <APIProvider apiKey="AIzaSyAgqHzz2dnZjPak07ZPzQeGHPPdtTTl81k">
+                      <APIProvider
+                        apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+                      >
                         <div style={{ height: "200px", width: "100%" }}>
                           <Map
                             zoom={9}
