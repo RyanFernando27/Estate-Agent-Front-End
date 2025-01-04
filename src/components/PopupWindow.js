@@ -1,30 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { GrNext } from "react-icons/gr";
-import { GrLinkPrevious } from "react-icons/gr";
-
-import { GrPrevious } from "react-icons/gr";
-import { Row, Col, Image, Button } from "react-bootstrap"; // Import Row and Col from react-bootstrap
+import { GrNext, GrPrevious } from "react-icons/gr";
+import { Row, Col, Image, Button } from "react-bootstrap";
 
 function PopupWindow({ popupTrigger, property, closePopup }) {
   const [selectedImage, setSelectedImage] = useState(""); // State to store selected image
-  const thumbnailsRef = React.createRef(); // Reference to thumbnail container
 
-  const handleThumbnailClick = (image) => {
-    setSelectedImage(image);
-  };
+  // Navigate to the next or previous image
+  const navigateImage = (direction) => {
+    const imageKeys = Object.keys(property.images);
+    const currentIndex = imageKeys.findIndex(
+      (key) => property.images[key] === selectedImage
+    );
 
-  // Functions to scroll the thumbnails left or right
-  const scrollThumbnails = (direction) => {
-    const container = thumbnailsRef.current;
-    const scrollAmount = 100; // Amount to scroll when an arrow is clicked
-    if (direction === "left") {
-      container.scrollLeft -= scrollAmount;
-    } else {
-      container.scrollLeft += scrollAmount;
+    let newIndex;
+    if (direction === "next") {
+      newIndex = (currentIndex + 1) % imageKeys.length; // Wrap around to the first image
+    } else if (direction === "previous") {
+      newIndex = (currentIndex - 1 + imageKeys.length) % imageKeys.length; // Wrap around to the last image
     }
+
+    setSelectedImage(property.images[imageKeys[newIndex]]);
   };
+
   useEffect(() => {
     // Set the first image as the default selected image when the property changes
     if (property?.images) {
@@ -38,14 +37,14 @@ function PopupWindow({ popupTrigger, property, closePopup }) {
       <div
         className="popup-inner container"
         style={{
-          width: "100%", // Set the width to 100% of the browser window
-          maxWidth: "1500px", // Optional: prevent the popup from becoming too wide on large screens
-          margin: "0 auto", // Center the popup horizontally
-          height: "80vh", // Set the height to 80% of the viewport height, or adjust as needed
-          backgroundColor: "white", // Ensure the background is white for visibility
-          borderRadius: "8px", // Keep the border-radius for rounded corners
-          padding: "20px", // Add some padding inside the popup
-          overflowY: "auto", // Ensure the content is scrollable if it overflows
+          width: "100%",
+          maxWidth: "1500px",
+          margin: "0 auto",
+          height: "80vh",
+          backgroundColor: "white",
+          borderRadius: "8px",
+          padding: "20px",
+          overflowY: "auto",
         }}
       >
         <button
@@ -59,39 +58,26 @@ function PopupWindow({ popupTrigger, property, closePopup }) {
             <Row>
               {/* Image Column */}
               <Col md={6}>
-                <Image src={selectedImage} alt={property.type} fluid />
-                <div className="d-flex justify-content-center mt-3">
+                <div className="d-flex align-items-center justify-content-center position-relative">
+                  {/* Previous Image Button */}
                   <Button
                     variant="link"
-                    onClick={() => scrollThumbnails("left")}
+                    className="position-absolute start-0"
+                    onClick={() => navigateImage("previous")}
+                    style={{ zIndex: 10 }}
                   >
                     <GrPrevious />
                   </Button>
 
-                  {/* Scrollable Thumbnail images */}
-                  <div
-                    className="d-flex overflow-auto"
-                    style={{ maxWidth: "100%", scrollBehavior: "smooth" }}
-                    ref={thumbnailsRef}
-                  >
-                    {Object.keys(property.images).map((imageKey) => (
-                      <Col key={imageKey} md={3} className="mb-3">
-                        <Image
-                          src={property.images[imageKey]}
-                          alt={`Gallery ${imageKey}`}
-                          thumbnail
-                          className="cursor-pointer"
-                          onClick={() =>
-                            handleThumbnailClick(property.images[imageKey])
-                          } // Change main image on click
-                        />
-                      </Col>
-                    ))}
-                  </div>
+                  {/* Main Image */}
+                  <Image src={selectedImage} alt={property.type} fluid />
 
+                  {/* Next Image Button */}
                   <Button
                     variant="link"
-                    onClick={() => scrollThumbnails("right")}
+                    className="position-absolute end-0"
+                    onClick={() => navigateImage("next")}
+                    style={{ zIndex: 10 }}
                   >
                     <GrNext />
                   </Button>
