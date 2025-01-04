@@ -135,10 +135,21 @@ function Main() {
   const toggleAdvanceSearch = () => {
     setShowAdvanceSearch((prev) => !prev);
   };
+  const handleDropOutside = (e) => {
+    e.preventDefault();
+    const draggedFavouriteId = e.dataTransfer.getData("favouriteId");
+    setFavourites((prev) =>
+      prev.filter((fav) => fav.id !== draggedFavouriteId)
+    );
+  };
 
   return (
     <>
-      <div className="container-fluid">
+      <div
+        className="container-fluid"
+        onDrop={handleDropOutside} // Handle drop outside of favourites
+        onDragOver={(e) => e.preventDefault()} // Allow dropping
+      >
         <Navbar
           filterProperties={handleNavBarFilter}
           resetFilter={resetNavBarFilter}
