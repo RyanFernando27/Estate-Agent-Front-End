@@ -1,0 +1,61 @@
+.popup {
+  opacity: 0;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Full screen width for the blur effect */
+  height: 100vh; /* Full screen height for the blur effect */
+  background-color: rgba(
+    192,
+    192,
+    192,
+    0.5
+  ); /* Semi-transparent dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px); /* Creates the blur effect */
+}
+
+.popup-animate-in {
+  opacity: 1;
+}
+
+.popup-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 80vh;
+  background-color: #ffffff; /* Solid white background */
+  color: black; /* Update text color for contrast */
+  border-radius: 8px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close-popup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+  background-color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.close-popup:hover {
+  background-color: #f8f9fa;
+}
