@@ -21,27 +21,6 @@
   padding: 0;
 }
 
-.popup {
-  z-index: 999;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 75%;
-  height: 100vh;
-  background-color: rgba(240, 248, 255, 0.343);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-inner {
-  position: relative;
-  padding: 32px;
-  width: 100%;
-  max-width: 640px;
-  background-color: white;
-}
-
 /* Center the search container */
 .search-container {
   width: 100%;
