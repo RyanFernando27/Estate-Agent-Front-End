@@ -1,7 +1,8 @@
 .popup {
   opacity: 0;
 
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease, --backdrop-blur 0.3s ease;
   z-index: 999;
   position: fixed;
   top: 0;
@@ -22,6 +23,7 @@
 
 .popup-animate-in {
   opacity: 1;
+  transform: scale(1);
 }
 
 .popup-inner {

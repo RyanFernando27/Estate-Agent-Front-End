@@ -27,7 +27,8 @@
             "mapSrc":{
                 "lat":51.5074,
                 "lng": -0.1278
-              }
+              },
+              "floorPlan": "/FloorPlan/propPlan1.jpg"
         },
         {
             "id": "prop2",
@@ -56,7 +57,8 @@
             "mapSrc":{
                 "lat":53.4808,
                 "lng": -2.2426
-              }
+              },
+              "floorPlan": "/FloorPlan/propPlan2.jpg"
         
         },
         {
@@ -86,7 +88,8 @@
             "mapSrc":{
                 "lat":51.4545,
                 "lng": -2.5879
-              }
+              },
+              "floorPlan": "/FloorPlan/propPlan3.jpg"
             },
             
         {
@@ -116,7 +119,8 @@
             "mapSrc":{
                 "lat":55.9533,
                 "lng": -3.1883
-              }
+              },
+              "floorPlan": "/FloorPlan/propPlan4.jpg"
         },
         {
             "id": "prop5",
@@ -145,7 +149,8 @@
             "mapSrc":{
                 "lat":52.4862,
                 "lng": -1.8904
-              }
+              },
+              "floorPlan": "/FloorPlan/propPlan5.jpg"
         },
         {
             "id": "prop6",
@@ -174,7 +179,8 @@
             "mapSrc":{
                 "lat":55.8642,
                 "lng": -4.2518
-              }
+              },
+              "floorPlan": "/FloorPlan/propPlan6.jpg"
         },
         {
             "id": "prop7",
@@ -203,7 +209,8 @@
             "mapSrc":{
                 "lat":53.4084,
                 "lng": -2.9916
-              }
+              },
+              "floorPlan": "/FloorPlan/propPlan7.jpg"
         },
         {
             "id": "prop8",
@@ -232,7 +239,8 @@
             "mapSrc":{
                 "lat":53.8008,
                 "lng": -1.5491
-              }
+              },
+              "floorPlan": "/FloorPlan/propPlan8.jpg"
         },
         {
             "id": "prop9",
@@ -261,7 +269,8 @@
             "mapSrc":{
                 "lat":51.4816,
                 "lng": -3.1791
-              }
+              },
+              "floorPlan": "/FloorPlan/propPlan9.jpg"
         },
         {
             "id": "prop10",
@@ -290,7 +299,9 @@
             "mapSrc":{
                 "lat":53.3811,
                 "lng": -1.4701
-              }
+              },
+              "floorPlan": "/FloorPlan/propPlan10.jpg"
+
         }
     ]
 }

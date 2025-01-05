@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
+import "react-tabs/style/react-tabs.css"; //react Tabs styles importing
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { Row, Col, Image, Button } from "react-bootstrap";
 import {
@@ -8,7 +8,7 @@ import {
   Map,
   AdvancedMarker,
   Pin,
-} from "@vis.gl/react-google-maps";
+} from "@vis.gl/react-google-maps"; // Google Map API import
 import "./PopupWindow.css";
 
 function PopupWindow({ popupTrigger, property, closePopup }) {
@@ -127,7 +127,12 @@ function PopupWindow({ popupTrigger, property, closePopup }) {
                   </TabPanel>
 
                   <TabPanel>
-                    <h2>Floor Plan</h2>
+                    <Image
+                      src={property.floorPlan}
+                      alt={property.type}
+                      fluid
+                      style={{ width: "300px", height: "auto" }}
+                    />
                     {/* Add floor plan content here */}
                   </TabPanel>
 
