@@ -38,18 +38,27 @@ function Main() {
   const [showAdvanceSearch, setShowAdvanceSearch] = useState(false);
 
   // Load favourites from localStorage when the component mounts
+  // Load favourites from localStorage on component mount
+  // Load favourites from localStorage on component mount
   useEffect(() => {
-    const storedFavourites = JSON.parse(localStorage.getItem("favourites"));
-    if (storedFavourites) {
-      setFavourites(storedFavourites);
+    try {
+      const storedFavourites = JSON.parse(localStorage.getItem("favourites"));
+      if (storedFavourites) {
+        setFavourites(storedFavourites);
+      }
+    } catch (error) {
+      console.error("Failed to load favourites from localStorage:", error);
     }
   }, []);
 
-  // Save favourites to localStorage whenever favourites change
+  // Save favourites to localStorage whenever favourites state changes
   useEffect(() => {
-    localStorage.setItem("favourites", JSON.stringify(favourites));
+    try {
+      localStorage.setItem("favourites", JSON.stringify(favourites));
+    } catch (error) {
+      console.error("Failed to save favourites to localStorage:", error);
+    }
   }, [favourites]);
-
   // Show the popup window with property details
   const handleShowModal = (id) => {
     const property = Records.properties.find((prop) => prop.id === id);

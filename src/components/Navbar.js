@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import React, { useState } from "react";
-import logo from "../assests/logo.jpg";
+import logo from "../assests/logo.png";
 
 function NavBar({ filterProperties, resetFilter }) {
   // State to controll nav bar search by location or tenure
@@ -24,8 +24,8 @@ function NavBar({ filterProperties, resetFilter }) {
             height="50"
             className="d-inline-block align-top"
           />{" "}
-          Real State
         </Navbar.Brand>
+        <div>Real Estate Properties</div>
         <div className="mt-3">
           <input
             className="searchbar"
