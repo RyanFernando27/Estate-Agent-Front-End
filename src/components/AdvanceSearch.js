@@ -7,6 +7,7 @@ import { GrLinkNext } from "react-icons/gr";
 import "react-widgets/styles.css";
 import { Container, Row, Col } from "react-bootstrap";
 
+// Advance search criteria call back function search the property matched to the search send to the Main.js to display on the Items page
 function AdvanceSearch({ onSearch }) {
   const [filters, setFilters] = useState({
     type: "",
@@ -19,12 +20,14 @@ function AdvanceSearch({ onSearch }) {
     dateRange: { start: null, end: null }, // Date range filter
   });
 
+  // Handles changes in the filter inputs and updates the corresponding state
   const handleInputChange = (key, value) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
+  // Triggers the search callback in the parent component with the current filters
   const handleSearch = () => {
-    onSearch(filters); // Pass all filters, including the date range, to the parent component
+    onSearch(filters); // Pass all filters criteria to the parent component
   };
 
   return (

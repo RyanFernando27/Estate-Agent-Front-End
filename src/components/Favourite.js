@@ -7,6 +7,7 @@ function Favourite({
   removeFromFavourite,
   clearFavourites,
 }) {
+  // handle Drag out  property from the favourites to remove it .
   const handleDrop = (e) => {
     e.preventDefault();
     const droppedProperty = JSON.parse(e.dataTransfer.getData("property"));
@@ -17,10 +18,12 @@ function Favourite({
 
   const handleDragOver = (e) => e.preventDefault();
 
+  // start drag function
   const handleDragStartFromFavourite = (e, id) => {
     e.dataTransfer.setData("favouriteId", id);
   };
 
+  // Clear All function
   const handleClearAll = () => {
     const isConfirmed = window.confirm(
       "Are you sure you want to delete all items?"

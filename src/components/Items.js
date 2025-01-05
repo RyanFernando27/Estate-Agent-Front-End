@@ -1,6 +1,7 @@
 import React from "react";
 import CardPage from "./CardPage";
 
+// Container that hold the Card pages and send props to the child component .
 function Items({
   addToFavourite,
   properties,

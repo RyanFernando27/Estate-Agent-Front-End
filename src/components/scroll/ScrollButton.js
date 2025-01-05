@@ -1,12 +1,9 @@
-// components/ScrollButton.js
-
 import React, { useState } from "react";
-// import { GoArrowUp } from "react-icons/go";
-import { FaArrowUpLong } from "react-icons/fa6";
 import { Button } from "./Styles";
 import { GoArrowUp } from "react-icons/go";
 
 const ScrollButton = () => {
+  // Page Up scroll button implementation
   const [visible, setVisible] = useState(false);
 
   const toggleVisible = () => {

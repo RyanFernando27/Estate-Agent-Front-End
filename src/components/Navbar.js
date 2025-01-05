@@ -5,8 +5,10 @@ import React, { useState } from "react";
 import logo from "../assests/logo.jpg";
 
 function NavBar({ filterProperties, resetFilter }) {
+  // State to controll nav bar search by location or tenure
   const [searchInput, setSearchInput] = useState("");
 
+  // Event handler for the search property  and show the relevant properties on the items page
   const handleSearch = (type) => {
     filterProperties(type, searchInput);
   };
