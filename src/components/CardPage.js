@@ -47,7 +47,7 @@ function CardPage({
                   </Button>
 
                   <Button
-                    variant="primary"
+                    variant="success"
                     onClick={() => addToFavourite(eachCard)}
                   >
                     Add to Favourite
