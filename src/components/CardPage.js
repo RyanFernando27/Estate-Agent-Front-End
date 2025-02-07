@@ -26,58 +26,55 @@ function CardPage({
   };
 
   return (
-    <>
-      <Container className="my-4">
-        <Row>
-          {properties.map((eachCard) => (
-            <Col md={4} key={eachCard.id} className="mb-4">
-              <Tilt options={defaultOptions}>
-                <Card
-                  className="item-card h-100"
-                  draggable // Enable dragging for the card
-                  onDragStart={(e) => handleDragStart(e, eachCard)} // Use the passed drag start handler
+    <Container fluid>
+      <Row xs={1} sm={2} md={3} lg={4} className="g-4">
+        {properties.map((eachCard) => (
+          <Col key={eachCard.id}>
+            <Tilt options={defaultOptions}>
+              <Card
+                className="item-card h-100"
+                draggable
+                onDragStart={(e) => handleDragStart(e, eachCard)}
+              >
+                <button
+                  className="card-pic-btn"
+                  onClick={() => handleShowModal(eachCard.id)}
                 >
-                  <button
-                    className="card-pic-btn"
-                    onClick={() => handleShowModal(eachCard.id)} // Trigger the modal
-                  >
-                    <Card.Img
-                      variant="top"
-                      src={eachCard.picture}
-                      alt={eachCard.type}
-                    />
-                  </button>
+                  <Card.Img
+                    variant="top"
+                    src={eachCard.picture}
+                    alt={eachCard.type}
+                  />
+                </button>
 
-                  <Card.Body>
-                    <Card.Title>{eachCard.type}</Card.Title>
-                    <Card.Text>
-                      <strong>Tenure:</strong> {eachCard.tenure}
-                      <br />
-                      <strong>Bedrooms:</strong> {eachCard.bedrooms}
-                      <br />
-                      <strong>Location:</strong> {eachCard.location}
-                      <br />
-                      <strong>Price:</strong> ${eachCard.price.toLocaleString()}
-                      <br />
-                    </Card.Text>
-                    <IconButton
-                      color="error"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        addToFavourite(eachCard);
-                      }}
-                      className="favorite-btn"
-                    >
-                      <FavoriteIcon />
-                    </IconButton>
-                  </Card.Body>
-                </Card>
-              </Tilt>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </>
+                <Card.Body>
+                  <Card.Title>{eachCard.type}</Card.Title>
+                  <Card.Text>
+                    <strong>Tenure:</strong> {eachCard.tenure}
+                    <br />
+                    <strong>Bedrooms:</strong> {eachCard.bedrooms}
+                    <br />
+                    <strong>Location:</strong> {eachCard.location}
+                    <br />
+                    <strong>Price:</strong> ${eachCard.price.toLocaleString()}
+                  </Card.Text>
+                  <IconButton
+                    color="error"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      addToFavourite(eachCard);
+                    }}
+                    className="favorite-btn"
+                  >
+                    <FavoriteIcon />
+                  </IconButton>
+                </Card.Body>
+              </Card>
+            </Tilt>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 
