@@ -37,9 +37,12 @@ function Main() {
   // State to toggle advanced search visibility
   const [showAdvanceSearch, setShowAdvanceSearch] = useState(false);
 
-  // Load favourites from localStorage when the component mounts
-  // Load favourites from localStorage on component mount
-  // Load favourites from localStorage on component mount
+  // Add theme state
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? savedTheme === 'dark' : false;
+  });
+
   useEffect(() => {
     try {
       const storedFavourites = JSON.parse(localStorage.getItem("favourites"));
@@ -59,6 +62,7 @@ function Main() {
       console.error("Failed to save favourites to localStorage:", error);
     }
   }, [favourites]);
+
   // Show the popup window with property details
   const handleShowModal = (id) => {
     const property = Records.properties.find((prop) => prop.id === id);
@@ -117,11 +121,10 @@ function Main() {
       bedroomsMax,
       priceMin,
       priceMax,
-      dateRange,
+      date,
     } = filters;
 
-    const startDate = dateRange.start ? new Date(dateRange.start) : null;
-    const endDate = dateRange.end ? new Date(dateRange.end) : null;
+    const selectedDate = date ? new Date(date) : null;
 
     const filtered = properties.filter((property) => {
       const addedDate = new Date(
@@ -139,9 +142,10 @@ function Main() {
       const matchesPrice =
         (!priceMin || property.price >= priceMin) &&
         (!priceMax || property.price <= priceMax);
-      const matchesDateRange =
-        (!startDate || addedDate >= startDate) &&
-        (!endDate || addedDate <= endDate);
+      const matchesDate = !selectedDate || 
+        (addedDate.getFullYear() === selectedDate.getFullYear() &&
+         addedDate.getMonth() === selectedDate.getMonth() &&
+         addedDate.getDate() === selectedDate.getDate());
 
       return (
         matchesType &&
@@ -149,7 +153,7 @@ function Main() {
         matchesLocation &&
         matchesBedrooms &&
         matchesPrice &&
-        matchesDateRange
+        matchesDate
       );
     });
 
@@ -170,10 +174,22 @@ function Main() {
     );
   };
 
+  // Add theme toggle function
+  const toggleTheme = () => {
+    setIsDarkMode(prev => !prev);
+  };
+
+  // Save theme preference to localStorage
+  useEffect(() => {
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    // Apply theme to body
+    document.body.className = isDarkMode ? 'dark-theme' : 'light-theme';
+  }, [isDarkMode]);
+
   return (
     <>
       <div
-        className="container-fluid"
+        className={`container-fluid main ${isDarkMode ? 'dark-theme' : 'light-theme'}`}
         onDrop={handleDropOutside} // Handle drop outside of favourites
         onDragOver={(e) => e.preventDefault()} // Allow dropping
       >
@@ -181,6 +197,8 @@ function Main() {
         <Navbar
           filterProperties={handleNavBarFilter}
           resetFilter={resetNavBarFilter}
+          isDarkMode={isDarkMode}
+          toggleTheme={toggleTheme}
         />
 
         {/* Toggle button for Advanced Search */}
@@ -194,34 +212,33 @@ function Main() {
         )}
 
         <Row>
-          <Col md={8}>
+          <Col>
             {/* Property cards */}
             <Items
-              handleDragStart={handleDragStart} // Pass drag event handler
+              handleDragStart={handleDragStart}
               properties={filteredProperties}
               addToFavourite={addToFavourite}
               handleCardClick={handleShowModal}
-            />
-          </Col>
-
-          {/* Popup window for property details */}
-          <PopupWindow
-            popupTrigger={popupTrigger}
-            property={selectedProperty}
-            addToFavourite={addToFavourite}
-            closePopup={handleCloseModal}
-          />
-
-          <Col md={4}>
-            {/* Favourites list */}
-            <Favourite
-              favourites={favourites}
-              setFavourites={setFavourites} // Ensure this is passed correctly
-              removeFromFavourite={removeFromFavourite}
-              clearFavourites={clearFavourites}
+              isDarkMode={isDarkMode}
             />
           </Col>
         </Row>
+
+        {/* Popup window for property details */}
+        <PopupWindow
+          popupTrigger={popupTrigger}
+          property={selectedProperty}
+          addToFavourite={addToFavourite}
+          closePopup={handleCloseModal}
+        />
+
+        {/* Favourites as floating button and sidebar */}
+        <Favourite
+          favourites={favourites}
+          setFavourites={setFavourites}
+          removeFromFavourite={removeFromFavourite}
+          clearFavourites={clearFavourites}
+        />
       </div>
 
       {/* Footer */}

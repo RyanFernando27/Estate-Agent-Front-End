@@ -31,10 +31,9 @@ function AdvanceSearch({ onSearch }) {
   };
 
   return (
-    <Container className="mt-4 mb-5">
-      <Row className="gy-3">
-        {/* Row 1: Type and Tenure */}
-        <Col md={6}>
+    <Container className="advance-search-container glass-effect mt-4 mb-5">
+      <Row className="g-3">
+        <Col xs={12} md={6}>
           <label className="search-label">
             <strong>Type:</strong>
           </label>
@@ -44,7 +43,7 @@ function AdvanceSearch({ onSearch }) {
             onChange={(value) => handleInputChange("type", value)}
           />
         </Col>
-        <Col md={6}>
+        <Col xs={12} md={6}>
           <label className="search-label">
             <strong>Tenure:</strong>
           </label>
@@ -54,9 +53,7 @@ function AdvanceSearch({ onSearch }) {
             onChange={(value) => handleInputChange("tenure", value)}
           />
         </Col>
-
-        {/* Row 2: Location */}
-        <Col md={12}>
+        <Col xs={12}>
           <label className="search-label">
             <strong>Location:</strong>
           </label>
@@ -66,9 +63,7 @@ function AdvanceSearch({ onSearch }) {
             onChange={(e) => handleInputChange("location", e.target.value)}
           />
         </Col>
-
-        {/* Row 3: Bedrooms */}
-        <Col md={6}>
+        <Col xs={12} sm={6} md={3}>
           <label className="search-label">
             <strong>Min Bedrooms:</strong>
           </label>
@@ -78,7 +73,7 @@ function AdvanceSearch({ onSearch }) {
             onChange={(value) => handleInputChange("bedroomsMin", value)}
           />
         </Col>
-        <Col md={6}>
+        <Col xs={12} sm={6} md={3}>
           <label className="search-label ">
             <strong>Max Bedrooms:</strong>
           </label>
@@ -88,9 +83,7 @@ function AdvanceSearch({ onSearch }) {
             onChange={(value) => handleInputChange("bedroomsMax", value)}
           />
         </Col>
-
-        {/* Row 4: Price */}
-        <Col md={6}>
+        <Col xs={12} sm={6} md={3}>
           <label className="search-label">
             <strong>Min Price: $</strong>
           </label>
@@ -100,7 +93,7 @@ function AdvanceSearch({ onSearch }) {
             onChange={(e) => handleInputChange("priceMin", e.target.value)}
           />
         </Col>
-        <Col md={6}>
+        <Col xs={12} sm={6} md={3}>
           <label className="search-label">
             <strong>Max Price: $</strong>
           </label>
@@ -110,9 +103,7 @@ function AdvanceSearch({ onSearch }) {
             onChange={(e) => handleInputChange("priceMax", e.target.value)}
           />
         </Col>
-
-        {/* Row 5: Date Range */}
-        <Col md={6}>
+        <Col xs={12} md={6}>
           <label className="search-label">
             <strong>Start Date:</strong>
           </label>
@@ -126,7 +117,7 @@ function AdvanceSearch({ onSearch }) {
             }
           />
         </Col>
-        <Col md={6}>
+        <Col xs={12} md={6}>
           <label className="search-label">
             <strong>End Date:</strong>
           </label>
@@ -140,9 +131,7 @@ function AdvanceSearch({ onSearch }) {
             }
           />
         </Col>
-
-        {/* Row 6: Search Button */}
-        <Col md={12} className="text-center mt-3">
+        <Col xs={12} className="text-center mt-3">
           <Button onClick={handleSearch}>
             Search <GrLinkNext />
           </Button>

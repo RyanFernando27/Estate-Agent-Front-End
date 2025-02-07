@@ -1,5 +1,9 @@
-import React from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Card, Button, Offcanvas } from "react-bootstrap";
+import IconButton from "@mui/material/IconButton";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Badge from "@mui/material/Badge";
 
 function Favourite({
   favourites,
@@ -7,16 +11,45 @@ function Favourite({
   removeFromFavourite,
   clearFavourites,
 }) {
+  const [show, setShow] = useState(false);
+  const [isDraggingOver, setIsDraggingOver] = useState(false);
+  const buttonRef = React.useRef(null);
+
+  const handleClose = () => {
+    setShow(false);
+    // Add small delay to show button animation
+    setTimeout(() => {
+      if (buttonRef.current) {
+        buttonRef.current.classList.remove('hidden');
+      }
+    }, 300);
+  };
+
+  const handleShow = () => {
+    setShow(true);
+    if (buttonRef.current) {
+      buttonRef.current.classList.add('hidden');
+    }
+  };
+
   // handle Drag out  property from the favourites to remove it .
   const handleDrop = (e) => {
     e.preventDefault();
+    setIsDraggingOver(false);
     const droppedProperty = JSON.parse(e.dataTransfer.getData("property"));
     if (!favourites.some((fav) => fav.id === droppedProperty.id)) {
       setFavourites((prev) => [...prev, droppedProperty]);
     }
   };
 
-  const handleDragOver = (e) => e.preventDefault();
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setIsDraggingOver(true);
+  };
+
+  const handleDragLeave = () => {
+    setIsDraggingOver(false);
+  };
 
   // start drag function
   const handleDragStartFromFavourite = (e, id) => {
@@ -35,79 +68,101 @@ function Favourite({
 
   return (
     <>
-      <Container
-        className="container-style"
-        onDrop={handleDrop}
+      {/* Floating Favourites Button with Drop Zone */}
+      <div 
+        className={`floating-fav-container ${isDraggingOver ? 'dragging-over' : ''}`}
         onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
+        ref={buttonRef}
       >
-        <Row className="justify-content-between align-items-center p-4">
-          <Col>
-            <h2 className="mb-0">Favourite</h2>
-          </Col>
-          <Col>
-            <Button
-              variant="danger"
-              className="p-2 d-flex align-items-center justify-content-end"
-              onClick={handleClearAll}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                className="bi bi-trash3-fill"
-                viewBox="0 0 16 16"
-              >
-                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
-              </svg>
-            </Button>
-          </Col>
-        </Row>
-        {favourites.length > 0 ? (
-          <Row>
-            {favourites.map((fav) => (
-              <Col md={12} key={fav.id} className="mb-4">
-                <Card
-                  draggable
-                  onDragStart={(e) => handleDragStartFromFavourite(e, fav.id)}
-                >
-                  <Card.Body>
-                    <Row>
-                      <Col sm={4}>
-                        <Card.Img
-                          variant="top"
-                          src={fav.picture || "placeholder-image-url.jpg"}
-                          alt={fav.type}
-                        />
-                      </Col>
-                      <Col sm={8}>
-                        <Card.Title>{fav.type}</Card.Title>
-                        <Card.Text>
-                          <strong>Tenure:</strong> {fav.tenure}
-                          <br />
-                          <strong>Bedrooms:</strong> {fav.bedrooms}
-                          <br />
-                          <strong>Location:</strong> {fav.location}
-                          <br />
-                          <strong>Price:</strong> ${fav.price.toLocaleString()}
-                        </Card.Text>
-                        <Button
-                          variant="danger"
-                          onClick={() => removeFromFavourite(fav.id)}
-                        >
-                          Remove
-                        </Button>
-                      </Col>
-                    </Row>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        ) : (
-          <p>No items added to favourites yet.</p>
+        <IconButton
+          onClick={handleShow}
+          className="floating-fav-btn"
+          color="error"
+          size="large"
+        >
+          <Badge badgeContent={favourites.length} color="error">
+            <FavoriteIcon />
+          </Badge>
+        </IconButton>
+        {isDraggingOver && (
+          <div className="drop-indicator">
+            Drop to add to favorites
+          </div>
         )}
-      </Container>
+      </div>
+
+      {/* Favourites Sidebar */}
+      <Offcanvas 
+        show={show} 
+        onHide={handleClose} 
+        placement="end"
+        className="favourites-sidebar glass-effect"
+      >
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>
+            <h2 className="mb-0">Favourites</h2>
+          </Offcanvas.Title>
+          <IconButton
+            color="error"
+            onClick={handleClearAll}
+            className="ms-2"
+          >
+            <DeleteIcon />
+          </IconButton>
+        </Offcanvas.Header>
+        <Offcanvas.Body
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+        >
+          {favourites.length > 0 ? (
+            <Row>
+              {favourites.map((fav) => (
+                <Col md={12} key={fav.id} className="mb-4">
+                  <Card
+                    className="fav-card"
+                    draggable
+                    onDragStart={(e) => handleDragStartFromFavourite(e, fav.id)}
+                  >
+                    <Card.Body>
+                      <Row>
+                        <Col sm={4}>
+                          <Card.Img
+                            variant="top"
+                            src={fav.picture || "placeholder-image-url.jpg"}
+                            alt={fav.type}
+                          />
+                        </Col>
+                        <Col sm={8}>
+                          <Card.Title>{fav.type}</Card.Title>
+                          <Card.Text>
+                            <strong>Tenure:</strong> {fav.tenure}
+                            <br />
+                            <strong>Bedrooms:</strong> {fav.bedrooms}
+                            <br />
+                            <strong>Location:</strong> {fav.location}
+                            <br />
+                            <strong>Price:</strong> ${fav.price.toLocaleString()}
+                          </Card.Text>
+                          <IconButton
+                            color="error"
+                            onClick={() => removeFromFavourite(fav.id)}
+                          >
+                            <DeleteIcon />
+                          </IconButton>
+                        </Col>
+                      </Row>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          ) : (
+            <p>No items added to favourites yet.</p>
+          )}
+        </Offcanvas.Body>
+      </Offcanvas>
     </>
   );
 }

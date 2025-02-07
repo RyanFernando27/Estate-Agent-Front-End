@@ -9,18 +9,14 @@ function Items({
   handleDragStart,
 }) {
   return (
-    <div className="container container-style">
-      <div className="row justify-content-center">
-        <div className="border p-4 row">
-          <h2>Properties</h2>
-          <CardPage
-            addToFavourite={addToFavourite}
-            properties={properties}
-            handleShowModal={handleCardClick}
-            handleDragStart={handleDragStart} // Pass the correct prop name for drag event handler
-          />
-        </div>
-      </div>
+    <div className="items-container glass-effect">
+      <h2>Properties</h2>
+      <CardPage
+        addToFavourite={addToFavourite}
+        properties={properties}
+        handleShowModal={handleCardClick}
+        handleDragStart={handleDragStart}
+      />
     </div>
   );
 }
