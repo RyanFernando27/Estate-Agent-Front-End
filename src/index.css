@@ -567,3 +567,59 @@ body {
     margin-top: 0.5rem;
   }
 }
+
+/* Card tilt effect styles */
+.item-card {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.dark-theme .item-card {
+  background: rgba(45, 45, 45, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.item-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .item-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Card content transform */
+.item-card .card-img-top,
+.item-card .card-body {
+  transform: translateZ(20px);
+}
+
+/* Card image styles */
+.item-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Favorite button styles */
+.favorite-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  transform: translateZ(30px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .item-card {
+    transform: none !important;
+  }
+
+  .item-card .card-img-top,
+  .item-card .card-body,
+  .favorite-btn {
+    transform: none !important;
+  }
+}
